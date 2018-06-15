@@ -27,7 +27,6 @@ yarn global ls --depth=0 > yarn-g-list.txt
 # backup some dotfiles likely not under source control
 cp -Rp \
     ~/.bash_history \
-    ~/.extra ~/.extra.fish \
     ~/.gitconfig.local \
     ~/.gnupg \
     ~/.nano \
@@ -145,37 +144,6 @@ export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
 ### install of common things
 ###
 
-# github.com/jamiew/git-friendly
-# the `push` command which copies the github compare URL to my clipboard is heaven
-bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
-
-
-# Type `git open` to open the GitHub page or website for a repository.
-npm install -g git-open
-
-# fancy listing of recent branches
-npm install -g git-recent
-
-# sexy git diffs
-npm install -g diff-so-fancy
-
-# trash as the safe `rm` alternative
-npm install --global trash-cli
-
-# install better nanorc config
-# https://github.com/scopatz/nanorc
-curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
-
-# github.com/rupa/z   - oh how i love you
-git clone https://github.com/rupa/z.git ~/code/z
-# consider reusing your current .z file if possible. it's painful to rebuild :)
-# z is hooked up in .bash_profile
-
-
-# github.com/thebitguru/play-button-itunes-patch
-# disable itunes opening on media keys
-git clone https://github.com/thebitguru/play-button-itunes-patch ~/code/play-button-itunes-patch
-
 
 # my magic photobooth symlink -> dropbox. I love it.
 # 	 + first move Photo Booth folder out of Pictures
@@ -198,14 +166,6 @@ echo $BASH_VERSION # should be 4.x not the old 3.2.X
 # Later, confirm iterm settings aren't conflicting.
 
 
-# iterm with more margin! http://hackr.it/articles/prettier-gutter-in-iterm-2/
-#   (admittedly not as easy to maintain)
-
-
-# setting up the sublime symlink
-ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
-
-
 ###
 ##############################################################################################################
 
@@ -220,11 +180,8 @@ sudo sysctl kern.maxvnodes=$((512*1024))
 echo kern.maxvnodes=$((512*1024)) | sudo tee -a /etc/sysctl.conf
 
 # speed up git status (to run only in chromium repo)
-git config status.showuntrackedfiles no
-git update-index --untracked-cache
-
-# also this unrelated thing
-git config user.email "paulirish@chromium.org"
+# git config status.showuntrackedfiles no
+# git update-index --untracked-cache
 
 
 ##############################################################################################################

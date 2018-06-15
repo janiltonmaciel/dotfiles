@@ -1,51 +1,46 @@
 
-# Grab my $PATHs from ~/.extra
-set -l PATH_DIRS (cat "$HOME/.extra" | grep "^PATH" | \
-    # clean up bash PATH setting pattern
-    sed "s/PATH=//" | sed "s/\\\$PATH://" | \
-    # rewrite ~/ to use {$HOME}
-    sed "s/~\//{\$HOME}\//")
+# set -gx VIRTUALFISH_COMPAT_ALIASES
+#set -gx JAVA_HOME "/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
+set -gx PROJETOS "$HOME/projetos"
+
+set -gx PATH /usr/local/bin
+append-to-path /usr/local/sbin
+append-to-path /bin
+append-to-path /sbin
+append-to-path /usr/bin
+append-to-path /usr/sbin
+
+# NODE
+# set -gx PATH $PATH ./node_modules/.bin
+# set -gx NVM_DIR ~/.nvm
+
+# GOLANGs
+set -gx GOPATH $PROJETOS/go
+set -gx GOBIN $GOPATH/bin
+append-to-path $GOPATH/bin
+
+# ANDROID
+#set -gx ANDROID_HOME ~/Library/Android/sdk
+#append-to-path $ANDROID_HOME/tools
+#append-to-path $ANDROID_HOME/platform-tools
+#append-to-path $ANDROID_HOME/build-tools
+
+set -gx PIP_DOWNLOAD_CACHE ~/Library/Caches/pip-downloads
+set -gx PYTHONUNBUFFERED x
+
+set -gx HOMEBREW_NO_ANALYTICS 1
+
+set -gx LC_ALL en_US.UTF-8
+set -gx LANG en_US.UTF-8
+set -gx LC_CTYPE en_US.UTF-8
+
+# set -gx VIRTUALENVWRAPPER_SCRIPT /usr/local/bin/virtualenvwrapper.sh
+# set -gx VIRTUALENVWRAPPER_HOOK_DIR ~/.virtualenvs
 
 
-set -l PA ""
+##### OLD ########
+# MySQL
+#append-to-path /usr/local/Cellar/mysql@5.6/5.6.38/bin
 
-for entry in (string split \n $PATH_DIRS)
-    # resolve the {$HOME} substitutions
-    set -l resolved_path (eval echo $entry)
-    if test -d "$resolved_path"; # and not contains $resolved_path $PATH
-        set PA $PA "$resolved_path"
-    end
-end
-
-# # rvm
-# if which -s rvm;
-# 	set PA $PA /Users/paulirish/.rvm/gems/ruby-2.2.1/bin
-# end
-
-
-set -l paths "
-# yarn binary
-$HOME/.yarn/bin
-$GOPATH/bin
-
-# yarn global modules (hack for me)
-$HOME/.config/yarn/global/node_modules/.bin
-"
-
-for entry in (string split \n $paths)
-    # resolve the {$HOME} substitutions
-    set -l resolved_path (eval echo $entry)
-    if test -d "$resolved_path";
-        set PA $PA "$resolved_path"
-    end
-end
-
-# GO
-set PA $PA "/Users/paulirish/.go/bin"
-
-# Google Cloud SDK.
-if test -f "$HOME/google-cloud-sdk/path.fish.inc"
-    source "$HOME/google-cloud-sdk/path.fish.inc"
-end
-
-set --export PATH $PA
+# Ruby (rvm)
+#append-to-path $HOME/.rvm/bin

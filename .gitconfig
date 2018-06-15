@@ -1,117 +1,237 @@
+[include]
+	path = ~/.gitconfig.local
+
 [alias]
-	c = commit -am
-	fpush = push --force
-	s = status
-	sclone = clone --depth=1
-	amend = commit --amend --all
-	undocommit = reset HEAD~
-	hreset = reset --hard
+
+	ll   = log --pretty=oneline --decorate --abbrev-commit --max-count=20
+	la   = log --color --pretty=format:'%Cred%h%Creset %Cgreen%ci (%cr)%Creset %C(bold blue)%an%Creset %C(auto)%d%Creset- %s'
+	lg   = log --oneline --all --decorate --graph
+	lag  = log --graph --color --pretty=format:'%Cred%h%Creset %Cgreen%ci (%cr)%Creset %C(bold blue)%an%Creset %C(auto)%d%Creset- %s'
+	gr = "!f() { git grep -n $1; }; f"
+	logdiff = "!f() { git log `git rev-parse --abbrev-ref HEAD` --not $1; }; f"
+	synctags = !git tag | xargs -n1 git tag -d && git fetch --tags
+  	tags = tag --sort=version:refname
+	st = status
+	ci = commit
+	br = branch
+	pl = pull
 	co = checkout
-	df = diff --color --color-words --abbrev
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	cherrypick = cherry-pick
-	cherry = cherry-pick
-	cp = cherry-pick
+	df = diff
+	pu = push
+	g = grep --break --heading --line-number
+	gi = grep --break --heading --line-number -i
+	lc = add-rm-line-count
+	changed = show --pretty=\"format:\" --name-only
+	fm = fetch-merge
+	pr = open-pr
+	please = push --force-with-lease
+	commend = commit --amend --no-edit
+	fpr = fetch-pr
+	lt = log --tags --decorate --simplify-by-decoration --oneline	
+
+	# View abbreviated SHA, description, and history graph of the latest 20 commits
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+	# View the current working tree status using the short format
+	s = status -sb
 
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
-	reup = rebase-update # depot_tools specific
-	git = !exec git
+	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
+	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+
+	# Pull in remote changes for the current repository and all its submodules
+	p = !"git pull; git submodule foreach git pull origin master"
+
+	# Clone a repository including all submodules
+	c = clone --recursive
+
+	# Commit all changes
+	ca = !git add -A && git commit -av
+
+	# Switch to a branch, creating it if necessary
+	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+	# Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+
+	# List aliases
+	aliases = config --get-regexp alias
+
+	# Amend the currently staged files to the latest commit
+	amend = commit --amend --reuse-message=HEAD
+
+	# Credit an author on the latest commit
+	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+
+	# Interactive rebase with the given number of latest commits
+	reb = "!r() { git rebase -i HEAD~$1; }; r"
+
+	# Remove the old tag with this name and tag the latest commit with it.
+	retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
+
+	# Find branches containing commit
+	fb = "!f() { git branch -a --contains $1; }; f"
+
+	# Find tags containing commit
+	ft = "!f() { git describe --always --contains $1; }; f"
+
+	# Find commits by source code
+	fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+
+	# Find commits by commit message
+	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+
+	# Remove branches that have already been merged with master
+	# a.k.a. ‘delete merged’
+	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+	# List contributors with number of commits
+	contributors = shortlog --summary --numbered
+
+	# Merge GitHub pull request on top of the current branch or,
+	# if a branch name is specified, on top of the specified branch
+	mpr = "!f() { \
+		declare currentBranch=\"$(git symbolic-ref --short HEAD)\"; \
+		declare branch=\"${2:-$currentBranch}\"; \
+		if [ $(printf \"%s\" \"$1\" | grep '^[0-9]\\+$' > /dev/null; printf $?) -eq 0 ]; then \
+			git fetch origin refs/pull/$1/head:pr/$1 && \
+			git checkout -B $branch && \
+			git rebase $branch pr/$1 && \
+			git checkout -B $branch && \
+			git merge pr/$1 && \
+			git branch -D pr/$1 && \
+			git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
+		fi \
+	}; f"
+
+[apply]
+
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
 
 [core]
+
+	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 
-[pager]
-	# insanely beautiful diffs ==> npm install -g diff-so-fancy
-	diff = diff-so-fancy | less --tabs=4 -RFX
-	show = diff-so-fancy | less --tabs=4 -RFX
+	# Treat spaces before tabs and all kinds of trailing whitespace as an error
+	# [default] trailing-space: looks for spaces at the end of a line
+	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
-[interactive]
-  # disabled until github.com/so-fancy/diff-so-fancy/pull/172 is resolved :(
-	# diffFilter = "diff-so-fancy"
+	# Make `git rebase` safer on macOS
+	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+	trustctime = false
 
-# so much color
+	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
+	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+	precomposeunicode = false
+
+	# Speed up commands involving untracked files such as `git status`.
+	# https://git-scm.com/docs/git-update-index#_untracked_cache
+	untrackedCache = true
+
+	editor = code
+
 [color]
+
+	# Use colors in Git commands that are capable of colored output when
+	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
 	ui = auto
-[color "diff"]
-	meta = yellow bold
-	commit = green bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-    newMoved = cyan
-    oldMoved = blue
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = "red bold 52"
-	newNormal = "green bold"
-	newHighlight = "green bold 22"
+
 [color "branch"]
+
 	current = yellow reverse
 	local = yellow
 	remote = green
+
+[color "diff"]
+
+	meta = yellow bold
+	frag = magenta bold # line info
+	old = red # deletions
+	new = green # additions
+
 [color "status"]
+
 	added = yellow
 	changed = green
 	untracked = cyan
 
-# git mergetool
-[merge]
-	tool = opendiff
-	renameLimit = 0
+# [merge]
+# 	tool = diffmerge
+# [mergetool "diffmerge"]
+# 	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+# 	trustExitCode = true
+# 	keepBackup = false
+# [diff]
+# 	tool = diffmerge
+# [difftool]
+# 	prompt = false
 
-# rewrites of repo paths
+[diff]
+
+	# Detect copies as well as renames
+	renames = copies
+
+[diff "bin"]
+
+	# Use `hexdump` to diff binary files
+	textconv = hexdump -v -C
+
+[help]
+
+	# Automatically correct and execute mistyped commands
+	autocorrect = 1
+
+
+[merge]
+
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
+
+	tool = vscode
+
+[mergetool "vscode"]
+	cmd = "code --wait "
+
+[push]
+
+	# https://git-scm.com/docs/git-config#git-config-pushdefault
+	default = simple
+	# Make `git push` push relevant annotated tags when pushing branches out.
+	followTags = true
+
+[grep]
+	extendRegexp = true
+	lineNumber = true
+
+[submodule]
+	fetchJobs = 4
+
+# URL shorthands
+
 [url "git@github.com:"]
-	insteadOf = "https://github.com/"
+
+	insteadOf = "gh:"
 	pushInsteadOf = "github:"
 	pushInsteadOf = "git://github.com/"
-	pushInsteadOf = "https://github.com/"
 
 [url "git://github.com/"]
+
 	insteadOf = "github:"
 
 [url "git@gist.github.com:"]
+
+	insteadOf = "gst:"
 	pushInsteadOf = "gist:"
 	pushInsteadOf = "git://gist.github.com/"
-	
+
 [url "git://gist.github.com/"]
+
 	insteadOf = "gist:"
-
-# correct typos
-[help]
-	autocorrect = 1
-
-# push easily. http://stackoverflow.com/a/23918418/89484
-[push]
-	default = current
-	followTags = true
-
-# use separate file for username / github token / etc
-[include]
-  path = ~/.gitconfig.local
-
-#[init]
-#	templatedir = ~/.git_template
-
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
-
-[fetch]
-	prune = true
-[diff]
-	compactionHeuristic = true
-
-    # Show blocks of moved text of at least 20 alphanumeric characters differently than adds/deletes
-    # https://blog.github.com/2018-04-05-git-217-released/
-    colorMoved = zebra
-[remote "origin"]
-	fetch = +refs/heads/*:refs/remotes/origin/*
-[stash]
-	showPatch = true
-[log]
-	date = relative

@@ -1,23 +1,13 @@
-set default_user "paulirish"
-set default_machine "paulirish-macbookair2"
-
-
 source ~/.config/fish/path.fish
 source ~/.config/fish/aliases.fish
+source ~/.config/fish/aliases_docker.fish
 source ~/.config/fish/chpwd.fish
 source ~/.config/fish/functions.fish
 source ~/.config/fish/chromium.fish
-source ~/.config/fish/conf.d/scmpuff.fish
 
-# for things not checked into git..
-if test -e "$HOME/.extra.fish";
-	source ~/.extra.fish
-end
 
 # THEME PURE #
 set fish_function_path $HOME/.config/fish/functions/pure $fish_function_path
-
-export GOPATH=$HOME/.go/
 
 # Completions
 function make_completion --argument-names alias command
@@ -77,7 +67,6 @@ set __fish_git_prompt_color_upstream_behind blue
 # Local prompt customization
 set -e fish_greeting
 
-
 set -g fish_pager_color_completion normal
 set -g fish_pager_color_description 555 yellow
 set -g fish_pager_color_prefix cyan
@@ -96,10 +85,4 @@ set -gx LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 
 # this currently messes with newlines in my prompt. lets debug it later.
 # test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-
-# tabtab source for yarn package
-# uninstall by removing these lines or running `tabtab uninstall yarn`
-[ -f /Users/paulirish/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish ]; and . /Users/paulirish/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish
-
-# rvm default
 

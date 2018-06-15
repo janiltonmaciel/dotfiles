@@ -141,11 +141,44 @@ print_success() {
 # actual symlink stuff
 #
 
+dropbox_local() {
+    local pathDropbox="$HOME/Dropbox/Local"
+    local sourceFiles=(".gitconfig.local")
+    local targetFiles=("$HOME")
+
+    for i in ${!sourceFiles[*]}; do
+        sourceFile="$pathDropbox/${sourceFiles[$i]}"
+        targetFile="${targetFiles[$i]}/${sourceFiles[$i]}"
+        # echo "sourceFile: $sourceFile"
+        # echo "targetFile: $targetFile"
+        if [ -e "$targetFile" ]; then
+            if [ "$(readlink "$targetFile")" != "$sourceFile" ]; then
+
+                ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
+                if answer_is_yes; then
+                    rm -rf "$targetFile"
+                    execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+                else
+                    print_error "$targetFile → $sourceFile"
+                fi
+
+            else
+                print_success "$targetFile → $sourceFile"
+            fi
+        else
+            execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+        fi
+    done
+
+}
+
+dropbox_local
+
+
 
 # finds all .dotfiles in this folder
 declare -a FILES_TO_SYMLINK=$(find . -type f -maxdepth 1 -name ".*" -not -name .DS_Store -not -name .git -not -name .osx | sed -e 's|//|/|' | sed -e 's|./.|.|')
-FILES_TO_SYMLINK="$FILES_TO_SYMLINK .vim bin .config/fish" # add in vim and the binaries
-
+FILES_TO_SYMLINK="$FILES_TO_SYMLINK fish omf"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -156,9 +189,14 @@ main() {
     local targetFile=""
 
     for i in ${FILES_TO_SYMLINK[@]}; do
-
+        case "$i" in
+        "fish" | "omf") targetFile="$HOME/.config/$i" ;;
+        *) targetFile="$HOME/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")" ;;
+        esac
         sourceFile="$(pwd)/$i"
-        targetFile="$HOME/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
+
+        # echo "sourceFile: $sourceFile"
+        # echo "targetFile: $targetFile"
 
         if [ -e "$targetFile" ]; then
             if [ "$(readlink "$targetFile")" != "$sourceFile" ]; then
@@ -177,9 +215,10 @@ main() {
         else
             execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
         fi
-
     done
 
 }
 
+
 main
+

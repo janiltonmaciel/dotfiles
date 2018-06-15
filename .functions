@@ -43,14 +43,14 @@ log() {
 
 
 
-# Start an HTTP server from a directory, optionally specifying the port
-function server() {
-	local port="${1:-8000}"
-	open "http://localhost:${port}/" &
- 	# statikk is good because it won't expose hidden folders/files by default.
- 	# yarn global add statikk
- 	statikk --port "$port" .
-}
+# # Start an HTTP server from a directory, optionally specifying the port
+# function server() {
+# 	local port="${1:-8000}"
+# 	open "http://localhost:${port}/" &
+#  	# statikk is good because it won't expose hidden folders/files by default.
+#  	# yarn global add statikk
+#  	statikk --port "$port" .
+# }
 
 
 # Copy w/ progress
@@ -170,9 +170,6 @@ function nullify() {
   "$@" >/dev/null 2>&1
 }
 
-
-# visual studio code. a la `subl`
-function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCodeInsiders" --args $*; }
 
 # `shellswitch [bash |zsh]`
 #   Must be in /etc/shells
