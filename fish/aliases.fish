@@ -9,7 +9,7 @@ function ..... ; cd ../../../.. ; end
 # Utilities
 function g        ; git $argv ; end
 function grep     ; command grep --color=auto $argv ; end
-
+function gc        ; git clone $argv ; end
 
 # mv, rm, cp
 alias mv 'command gmv --interactive --verbose'
@@ -40,10 +40,11 @@ alias dig="dig +nocmd any +multiline +noall +answer"
 alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
-alias g="git"
-alias gi="git"
+# alias g="git"
+# alias gi="git"
 alias ungz="gunzip -k"
 alias c clear
+alias gc="git clone"
 
 # File size
 alias fs="stat -f \"%z bytes\""
