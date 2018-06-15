@@ -52,6 +52,7 @@ set -g fish_color_separator 999
 set -g __fish_git_prompt_showdirtystate 'yes'
 set -g __fish_git_prompt_showupstream auto
 set -g pure_git_untracked_dirty false
+set -g pure_command_max_exec_time 5
 
 # Status Chars
 #set __fish_git_prompt_char_dirtystate '*'
