@@ -11,3 +11,5 @@ export LANG="en_US"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 export COPYFILE_DISABLE=true
+
+export GPG_TTY=$(tty)
