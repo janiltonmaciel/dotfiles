@@ -7,7 +7,7 @@ function ....  ; cd ../../.. ; end
 function ..... ; cd ../../../.. ; end
 
 # Utilities
-function g        ; git $argv ; end
+# function g        ; git $argv ; end
 function grep     ; command grep --color=auto $argv ; end
 function gc        ; git clone $argv ; end
 
