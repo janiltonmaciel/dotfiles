@@ -143,12 +143,12 @@ print_success() {
 
 dropbox_local() {
     local pathDropbox="$HOME/Dropbox/Local"
-    local sourceFiles=(".gitconfig.local")
-    local targetFiles=("$HOME")
+    local sourceFiles=("git/gitconfig.local" "ssh/config")
+    local targetFiles=("$HOME/.gitconfig.local" "$HOME/.ssh/config")
 
     for i in ${!sourceFiles[*]}; do
         sourceFile="$pathDropbox/${sourceFiles[$i]}"
-        targetFile="${targetFiles[$i]}/${sourceFiles[$i]}"
+        targetFile="${targetFiles[$i]}"
         # echo "sourceFile: $sourceFile"
         # echo "targetFile: $targetFile"
         if [ -e "$targetFile" ]; then
@@ -178,7 +178,7 @@ dropbox_local
 
 # finds all .dotfiles in this folder
 declare -a FILES_TO_SYMLINK=$(find . -type f -maxdepth 1 -name ".*" -not -name .DS_Store -not -name .git -not -name .osx | sed -e 's|//|/|' | sed -e 's|./.|.|')
-FILES_TO_SYMLINK="$FILES_TO_SYMLINK fish omf prefs/com.googlecode.iterm2.plist"
+FILES_TO_SYMLINK="$FILES_TO_SYMLINK fish omf"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
