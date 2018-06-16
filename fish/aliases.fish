@@ -40,8 +40,6 @@ alias dig="dig +nocmd any +multiline +noall +answer"
 alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
-# alias g="git"
-# alias gi="git"
 alias ungz="gunzip -k"
 alias c clear
 alias gc="git clone"
