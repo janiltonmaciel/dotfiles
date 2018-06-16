@@ -5,7 +5,6 @@ source ~/.config/fish/chpwd.fish
 source ~/.config/fish/functions.fish
 source ~/.config/fish/chromium.fish
 
-
 # THEME PURE #
 set fish_function_path $HOME/.config/fish/functions/pure $fish_function_path
 
