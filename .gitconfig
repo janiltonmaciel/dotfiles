@@ -1,6 +1,9 @@
 [include]
 	path = ~/.gitconfig.local
 
+[user]
+	useConfigOnly = true
+
 [alias]
 
 	ll   = log --pretty=oneline --decorate --abbrev-commit --max-count=20

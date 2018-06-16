@@ -133,47 +133,16 @@ print_success() {
 }
 
 
-
-
-
-
 #
 # actual symlink stuff
 #
 
-dropbox_local() {
-    local pathDropbox="$HOME/Dropbox/Local"
-    local sourceFiles=("git/gitconfig.local" "ssh/config")
-    local targetFiles=("$HOME/.gitconfig.local" "$HOME/.ssh/config")
 
-    for i in ${!sourceFiles[*]}; do
-        sourceFile="$pathDropbox/${sourceFiles[$i]}"
-        targetFile="${targetFiles[$i]}"
-        # echo "sourceFile: $sourceFile"
-        # echo "targetFile: $targetFile"
-        if [ -e "$targetFile" ]; then
-            if [ "$(readlink "$targetFile")" != "$sourceFile" ]; then
-
-                ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
-                if answer_is_yes; then
-                    rm -rf "$targetFile"
-                    execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
-                else
-                    print_error "$targetFile → $sourceFile"
-                fi
-
-            else
-                print_success "$targetFile → $sourceFile"
-            fi
-        else
-            execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
-        fi
-    done
-
+main_local() {
+    source "$HOME/Dropbox/Local/symlink-setup.sh"
 }
 
-dropbox_local
-
+main_local
 
 
 # finds all .dotfiles in this folder
@@ -191,7 +160,7 @@ main() {
     for i in ${FILES_TO_SYMLINK[@]}; do
         case "$i" in
         "fish" | "omf") targetFile="$HOME/.config/$i" ;;
-        "prefs/com.googlecode.iterm2.plist") targetFile="$HOME/Library/Preferences/com.googlecode.iterm2.plist" ;;
+        # "prefs/com.googlecode.iterm2.plist") targetFile="$HOME/Library/Preferences/com.googlecode.iterm2.plist" ;;
         *) targetFile="$HOME/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")" ;;
         esac
         sourceFile="$(pwd)/$i"
