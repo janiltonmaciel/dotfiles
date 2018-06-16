@@ -72,7 +72,6 @@ set -g fish_pager_color_description 555 yellow
 set -g fish_pager_color_prefix cyan
 set -g fish_pager_color_progress cyan
 
-
 # highlighting inside manpages and elsewhere
 set -gx LESS_TERMCAP_mb \e'[01;31m'       # begin blinking
 set -gx LESS_TERMCAP_md \e'[01;38;5;74m'  # begin bold
