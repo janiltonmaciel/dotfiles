@@ -10,18 +10,18 @@ source ~/.config/fish/chromium.fish
 set fish_function_path $HOME/.config/fish/functions/pure $fish_function_path
 
 # Completions
-function make_completion --argument-names alias command
-    echo "
-    function __alias_completion_$alias
-        set -l cmd (commandline -o)
-        set -e cmd[1]
-        complete -C\"$command \$cmd\"
-    end
-    " | .
-    complete -c $alias -a "(__alias_completion_$alias)"
-end
+# function make_completion --argument-names alias command
+#     echo "
+#     function __alias_completion_$alias
+#         set -l cmd (commandline -o)
+#         set -e cmd[1]
+#         complete -C\"$command \$cmd\"
+#     end
+#     " | .
+#     complete -c $alias -a "(__alias_completion_$alias)"
+# end
 
-make_completion g 'git'
+# make_completion g 'git'
 
 
 # Readline colors
