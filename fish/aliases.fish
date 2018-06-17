@@ -9,12 +9,7 @@ function ..... ; cd ../../../.. ; end
 # Utilities
 # function g        ; git $argv ; end
 function grep     ; command grep --color=auto $argv ; end
-function gc        ; git clone $argv ; end
-
-# mv, rm, cp
-alias mv 'command gmv --interactive --verbose'
-alias rm 'command grm --interactive --verbose'
-alias cp 'command gcp --interactive --verbose'
+function clone        ; git clone $argv ; end
 
 alias chmox='chmod +x'
 
