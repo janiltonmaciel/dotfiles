@@ -6,10 +6,14 @@
 
 [alias]
 
+	# LOGS
 	ll   = log --pretty=oneline --decorate --abbrev-commit --max-count=20
-	la   = log --color --pretty=format:'%Cred%h%Creset %Cgreen%ci (%cr)%Creset %C(bold blue)%an%Creset %C(auto)%d%Creset- %s'
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	la   = log --max-count=20 --color --pretty=format:'%C(yellow)%G?%Creset %Cred%h%Creset %Cgreen%ci (%cr)%Creset %C(bold blue)%ae%Creset %C(auto)%d%Creset- %s'
+	lol   = log --color --pretty=format:'%C(yellow)%G?%Creset %Cred%h%Creset %Cgreen%ci (%cr)%Creset %C(bold blue)%ae%Creset %C(auto)%d%Creset- %s'
 	lg   = log --oneline --all --decorate --graph
 	lag  = log --graph --color --pretty=format:'%Cred%h%Creset %Cgreen%ci (%cr)%Creset %C(bold blue)%an%Creset %C(auto)%d%Creset- %s'
+
 	gr = "!f() { git grep -n $1; }; f"
 	logdiff = "!f() { git log `git rev-parse --abbrev-ref HEAD` --not $1; }; f"
 	synctags = !git tag | xargs -n1 git tag -d && git fetch --tags
@@ -32,8 +36,6 @@
 	fpr = fetch-pr
 	lt = log --tags --decorate --simplify-by-decoration --oneline	
 
-	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
 	# View the current working tree status using the short format
 	s = status -sb
