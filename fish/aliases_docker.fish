@@ -9,15 +9,16 @@ alias dc docker-compose
 alias dcls 'docker container ls'
 alias dclsa 'docker container ls -a'
 alias dclse 'docker container ls -f status=exited'
-alias dcrme 'docker container rm (docker container ls -q -f status=exited)'
-alias dcexecl 'docker container exec -ti (docker -a -q -l) /bin/bash'
+alias dcrme 'docker container rm (docker container ls -q -f status=exited) 2>/dev/null'
+alias dcexecl 'docker container exec -it (docker container ls -l -q) /bin/bash'
 # alias dcexecl 'docker container exec -ti ( docker x` -a -q -l) /bin/bash'
 alias dcichild "docker inspect --format='{{.Id}} {{.Parent}}' (docker images --filter since=307767e90d0d --quiet)"
 
+# docker ps -a | awk '{ print $1,$2 }' | grep centos:7 | awk '{print $1 }' | xargs -I {} docker rm {}
 alias dils 'docker image ls'
 alias dilsa 'docker image ls -a'
 alias dilsd 'docker image ls -f dangling=true'
-alias dirmd 'docker image rm (docker image ls -q -f dangling=true)'
+alias dirmd 'docker image rm (docker image ls -q -f dangling=true) 2>/dev/null'
 
 function dma -d 'Ativa o docker-machine ao ambiente'
     if test (count $argv) -gt 0

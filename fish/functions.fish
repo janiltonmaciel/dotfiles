@@ -7,18 +7,6 @@ function killf
 end
 
 
-function md --wraps mkdir -d "Create a directory and cd into it"
-  command mkdir -p $argv
-  if test $status = 0
-    switch $argv[(count $argv)]
-      case '-*'
-      case '*'
-        cd $argv[(count $argv)]
-        return
-    end
-  end
-end
-
 function gz --d "Get the gzipped size"
   echo "orig size    (bytes): "
   cat "$argv[1]" | wc -c | gnumfmt --grouping
@@ -94,4 +82,9 @@ end
 
 function cleandsstores
     find . -name '.DS_Store' -exec rm -f '{}' ';'
+end
+
+
+function rmf --description "Remove force (unlink) the FILE(s)"
+	grm --interactive --verbose -f $argv
 end

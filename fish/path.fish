@@ -36,7 +36,7 @@ set -gx LC_CTYPE en_US.UTF-8
 
 set -gx COPYFILE_DISABLE true
 set -gx EDITOR "code"
-# set -gx GPG_TTY (tty)
+set -gx GPG_TTY (tty)
 
 # set -gx VIRTUALENVWRAPPER_SCRIPT /usr/local/bin/virtualenvwrapper.sh
 # set -gx VIRTUALENVWRAPPER_HOOK_DIR ~/.virtualenvs

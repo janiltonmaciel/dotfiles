@@ -9,7 +9,6 @@ function ..... ; cd ../../../.. ; end
 # Utilities
 # function g        ; git $argv ; end
 function grep     ; command grep --color=auto $argv ; end
-function clone        ; git clone $argv ; end
 
 alias chmox='chmod +x'
 
@@ -37,7 +36,6 @@ alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"
 # Shortcuts
 alias ungz="gunzip -k"
 alias c clear
-alias gc="git clone"
 
 # File size
 alias fs="stat -f \"%z bytes\""

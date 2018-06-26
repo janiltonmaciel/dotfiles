@@ -20,9 +20,7 @@ brew install gnu-sed --with-default-names
 # Bash 4
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
 brew install bash
-
 brew install bash-completion
-
 
 brew install homebrew/completions/brew-cask-completion
 
@@ -43,12 +41,15 @@ brew install entr
 
 # mtr - ping & traceroute. best.
 brew install mtr
-
 # allow mtr to run without sudo
 mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//')
 sudo chmod 4755 $mtrlocation/sbin/mtr
 sudo chown root $mtrlocation/sbin/mtr
 
+
+
+# Record and share your terminal sessions
+brew install asciinema
 
 # Install other useful binaries
 brew install the_silver_searcher
@@ -68,10 +69,13 @@ brew install ssh-copy-id
 
 brew install ncdu # find where your diskspace went
 
-brew install fish
+brew install fish # shellfish
 
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
+brew install nmap
+brew install socat
+
 # brew install aircrack-ng
 # brew install bfg
 # brew install binutils
@@ -86,9 +90,7 @@ brew install fish
 # brew install john
 # brew install knock
 # brew install netpbm
-brew install nmap
 # brew install pngcheck
-brew install socat
 # brew install sqlmap
 # brew install tcpflow
 # brew install tcpreplay
