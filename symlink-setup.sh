@@ -147,7 +147,7 @@ main_local
 
 # finds all .dotfiles in this folder
 declare -a FILES_TO_SYMLINK=$(find . -type f -maxdepth 1 -name ".*" -not -name .DS_Store -not -name .git -not -name .osx | sed -e 's|//|/|' | sed -e 's|./.|.|')
-FILES_TO_SYMLINK="$FILES_TO_SYMLINK fish omf"
+FILES_TO_SYMLINK="$FILES_TO_SYMLINK fish omf vscode/snippets vscode/settings.json"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -160,7 +160,8 @@ main() {
     for i in ${FILES_TO_SYMLINK[@]}; do
         case "$i" in
         "fish" | "omf") targetFile="$HOME/.config/$i" ;;
-        # "prefs/com.googlecode.iterm2.plist") targetFile="$HOME/Library/Preferences/com.googlecode.iterm2.plist" ;;
+        "vscode/snippets") targetFile="$HOME/Library/Application Support/Code/User/snippets" ;;
+        "vscode/settings.json") targetFile="$HOME/Library/Application Support/Code/User/settings.json" ;;
         *) targetFile="$HOME/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")" ;;
         esac
         sourceFile="$(pwd)/$i"
@@ -186,6 +187,7 @@ main() {
         else
             execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
         fi
+
     done
 
 }
