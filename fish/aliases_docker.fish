@@ -10,7 +10,8 @@ alias dcls 'docker container ls'
 alias dclsa 'docker container ls -a'
 alias dclse 'docker container ls -f status=exited'
 alias dcrme 'docker container rm (docker container ls -q -f status=exited) 2>/dev/null'
-alias dcexecl 'docker container exec -it (docker container ls -l -q) /bin/bash'
+alias dcexec 'docker container exec -it (docker container ls -l -q) /bin/bash'
+alias dcexeca 'docker container exec -it (docker container ls -l -q) /bin/ash'
 # alias dcexecl 'docker container exec -ti ( docker x` -a -q -l) /bin/bash'
 alias dcichild "docker inspect --format='{{.Id}} {{.Parent}}' (docker images --filter since=307767e90d0d --quiet)"
 
