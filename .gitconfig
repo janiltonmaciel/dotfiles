@@ -200,7 +200,7 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 
-	tool = vscode
+	tool = code
 
 [mergetool "vscode"]
 	cmd = "code --wait "
@@ -220,7 +220,6 @@
 	fetchJobs = 4
 
 # URL shorthands
-
 [url "git@github.com:"]
 
 	insteadOf = "gh:"
@@ -228,15 +227,13 @@
 	pushInsteadOf = "git://github.com/"
 
 [url "git://github.com/"]
-
 	insteadOf = "github:"
 
 [url "git@gist.github.com:"]
-
 	insteadOf = "gst:"
 	pushInsteadOf = "gist:"
 	pushInsteadOf = "git://gist.github.com/"
 
 [url "git://gist.github.com/"]
-
 	insteadOf = "gist:"
+

@@ -40,6 +40,11 @@ brew cask install licecap
 
 brew cask install spotify
 
+brew tap caskroom/fonts
+brew cask install font-fira-code
+
+brew cask install xquartz
+
 # brew tap caskroom/fonts 
 # brew cask install font-fira-code
 

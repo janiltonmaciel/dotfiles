@@ -12,8 +12,16 @@ alias dclse 'docker container ls -f status=exited'
 alias dcrme 'docker container rm (docker container ls -q -f status=exited) 2>/dev/null'
 alias dcexec 'docker container exec -it (docker container ls -l -q) /bin/bash'
 alias dcexeca 'docker container exec -it (docker container ls -l -q) /bin/ash'
-# alias dcexecl 'docker container exec -ti ( docker x` -a -q -l) /bin/bash'
 alias dcichild "docker inspect --format='{{.Id}} {{.Parent}}' (docker images --filter since=307767e90d0d --quiet)"
+
+# 
+alias dcnode 'docker container run --rm -it -v (pwd):/app node:8.11-alpine /bin/ash'
+
+function dcrmf -d 'Para e remove o docker container'
+  # Usage: dcrmf (friendly-name)
+  docker container rm -f "$argv"
+end
+
 
 # docker ps -a | awk '{ print $1,$2 }' | grep centos:7 | awk '{print $1 }' | xargs -I {} docker rm {}
 alias dils 'docker image ls'

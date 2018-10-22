@@ -9,6 +9,7 @@ append-to-path /bin
 append-to-path /sbin
 append-to-path /usr/bin
 append-to-path /usr/sbin
+append-to-path /usr/X11R6/bin
 
 # NODE
 # set -gx PATH $PATH ./node_modules/.bin

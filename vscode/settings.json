@@ -1,22 +1,27 @@
 {
-    "editor.fontSize": 13,
+    // "workbench.editor.enablePreview": false,
+    // "workbench.editor.enablePreviewFromQuickOpen": false,
+    "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
     "editor.rulers": [
     //   80,
       120
     ],
     "editor.tabSize": 4,
     "editor.trimAutoWhitespace": true,
-    "editor.tabCompletion": true,
+    "editor.tabCompletion": "on",
+    "editor.cursorStyle": "line",
+    "editor.cursorBlinking": "solid",
     "explorer.openEditors.visible": 0,
+    "editor.renderWhitespace": "boundary",
+   
     "window.restoreWindows": "none",
     "terminal.external.osxExec": "iTerm.app",
     "files.autoSave": "onFocusChange",
     "extensions.autoUpdate": true,
-    "editor.cursorStyle": "line",
-    "editor.cursorBlinking": "solid",
     "window.title": "${activeEditorMedium}${separator}${rootName}",
     // "files.trimTrailingWhitespace": true,
-    "editor.renderWhitespace": "boundary",
     // "workbench.colorTheme": "Nord",
     // "terraform.formatOnSave": true,
     "window.zoomLevel": 0,
@@ -62,5 +67,5 @@
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
-    "gitlens.defaultDateStyle": "absolute",
+    "gitlens.defaultDateStyle": "absolute"
 }
