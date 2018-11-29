@@ -112,3 +112,5 @@ shopt -s dirspell 2> /dev/null
 
 # Turn on recursive globbing (enables ** to recurse all directories)
 shopt -s globstar 2> /dev/null
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
