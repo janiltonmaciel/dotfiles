@@ -13,3 +13,5 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export COPYFILE_DISABLE=true
 
 export GPG_TTY=$(tty)
+
+export PATH="/usr/local/opt/sqlite/bin:$PATH"

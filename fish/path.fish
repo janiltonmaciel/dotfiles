@@ -4,6 +4,7 @@
 set -gx PROJETOS "$HOME/projetos"
 
 set -gx PATH /usr/local/bin
+append-to-path /usr/local/opt/sqlite/bin
 append-to-path /usr/local/sbin
 append-to-path /bin
 append-to-path /sbin
@@ -19,6 +20,7 @@ append-to-path /usr/X11R6/bin
 set -gx GOPATH $PROJETOS/go
 set -gx GOBIN $GOPATH/bin
 append-to-path $GOPATH/bin
+
 
 # ANDROID
 #set -gx ANDROID_HOME ~/Library/Android/sdk
