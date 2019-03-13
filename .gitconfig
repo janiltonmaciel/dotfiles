@@ -2,7 +2,9 @@
 	path = ~/.gitconfig.local
 
 [user]
-	useConfigOnly = true
+	name = Janilton Maciel
+	email = janilton@gmail.com
+	#useConfigOnly = true
 
 [alias]
 
@@ -141,7 +143,7 @@
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
 
-	editor = code
+	editor = code --wait
 
 [color]
 
@@ -180,27 +182,26 @@
 # 	prompt = false
 
 [diff]
-
+	tool = vscode
 	# Detect copies as well as renames
 	renames = copies
 
-[diff "bin"]
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 
+[diff "bin"]
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
 
 [help]
-
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
 
-
 [merge]
-
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
-
-	tool = code
+	tool = vscode
+	ff = false
 
 [mergetool "vscode"]
 	cmd = "code --wait "

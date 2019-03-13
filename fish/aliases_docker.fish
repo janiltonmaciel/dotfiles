@@ -14,6 +14,12 @@ alias dcexec='docker container exec -it (docker container ls -l -q) /bin/bash'
 alias dcexeca='docker container exec -it (docker container ls -l -q) /bin/ash'
 alias dcichild="docker inspect --format='{{.Id}} {{.Parent}}' (docker images --filter since=307767e90d0d --quiet)"
 
+function dexec -d 'docker container exec'
+  # Usage: dexec (friendly-name)
+  docker container exec -it "$argv" /bin/bash
+end
+
+
 # 
 alias dcnode='docker container run --rm -it -v (pwd):/app node:8.11-alpine /bin/ash'
 

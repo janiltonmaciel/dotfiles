@@ -114,3 +114,4 @@ shopt -s dirspell 2> /dev/null
 shopt -s globstar 2> /dev/null
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export PATH="$HOME/.poetry/bin:$PATH"

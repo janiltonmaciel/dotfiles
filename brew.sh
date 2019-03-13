@@ -81,6 +81,8 @@ brew install socat
 brew install mkcert
 brew install nss
 brew install httpie
+brew install jq
+brew install wrk
 
 # brew install aircrack-ng
 # brew install bfg
@@ -104,6 +106,7 @@ brew install httpie
 # brew install ucspi-tcp # `tcpserver` etc.
 # brew install xpdf
 
+# brew install mysql --client-only
 
 # Remove outdated versions from the cellar
 brew cleanup

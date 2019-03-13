@@ -176,3 +176,13 @@ function nullify() {
 shellswitch () {
 	chsh -s $(brew --prefix)/bin/$1
 }
+
+
+mysql () {
+    docker container run -it \
+        mysql:5.7 mysql -h host.docker.internal "$@"
+}
+
+cleandsstores() {
+    find . -name '.DS_Store' -exec rm -f '{}' ';'
+}

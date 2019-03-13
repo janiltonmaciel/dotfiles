@@ -88,3 +88,8 @@ end
 function rmf --description "Remove force (unlink) the FILE(s)"
 	grm --interactive --verbose -f $argv
 end
+
+# function mysql --description "Alias docker mysql"
+#     docker container run -it \
+#         mysql:5.7 mysql -h host.docker.internal $argv
+# end

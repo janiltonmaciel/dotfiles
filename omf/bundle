@@ -1,6 +1,6 @@
-package foreign-env
 #package nvm
 #package rvm
-#package virtualfish
+package foreign-env
+package virtualfish
 package z
 theme default

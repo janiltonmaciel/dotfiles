@@ -91,16 +91,36 @@ alias d='docker'
 alias dm='docker-machine'
 alias dc='docker-compose'
 
+# lista os containers em uso
 alias dcls='docker container ls'
+
+# lista todos os containers
 alias dclsa='docker container ls -a'
+
+# lista todos os containers com status=exited
 alias dclse='docker container ls -f status=exited'
+
+# remove todo os containers que foram finalizado e criados "sem uso"
 alias dcrm='docker container rm (docker container ls -q -f status=exited -f status=created) 2>/dev/null'
+
+# entra no último container criado usando bash
 alias dcexec='docker container exec -it (docker container ls -l -q) /bin/bash'
+
+# entra no último container criado usando ash (alpine)
 alias dcexeca='docker container exec -it (docker container ls -l -q) /bin/ash'
-alias dcichild="docker inspect --format='{{.Id}} {{.Parent}}' (docker images --filter since=307767e90d0d --quiet)"
+
+# executa e entra num container node
 alias dcnode='docker container run --rm -it -v (pwd):/app node:8.11-alpine /bin/ash'
 
+# lista todas as images
 alias dils='docker image ls'
+
+# lista todas as images e as intermediarias
 alias dilsa='docker image ls -a'
+
+# lista todas as images dangling (normalmente com error no build)
+# dangling: An unused image means that it has not been assigned or used in a container
 alias dilsd='docker image ls -f dangling=true'
+
+# remove todas as images dangling (normalmente com error no build)
 alias dirmd='docker image rm (docker image ls -q -f dangling=true) 2>/dev/null'
