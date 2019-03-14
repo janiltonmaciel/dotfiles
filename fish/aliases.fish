@@ -52,7 +52,7 @@ alias fs="stat -f \"%z bytes\""
 # emptytrash written as a function
 
 # Update installed Ruby gems, Homebrew, npm, and their installed packages
-alias brew_update="brew -v update; brew upgrade --force-bottle --cleanup; brew cleanup; brew prune; brew doctor"
+alias brew_update="brew -v update; brew upgrade --force-bottle; brew cleanup; brew cleanup --prune-prefix; brew doctor"
 
 alias reset_sound="sudo killall coreaudiod"
 
