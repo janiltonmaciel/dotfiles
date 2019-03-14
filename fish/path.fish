@@ -60,3 +60,7 @@ append-to-path /usr/local/opt/mysql-client/bin
 
 # Ruby (rvm)
 append-to-path $HOME/.rvm/bin
+
+# This env must be set in MacOS to ensure that docker py works
+# https://bugs.python.org/issue35219
+set -gx OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES

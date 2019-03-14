@@ -15,3 +15,7 @@ export COPYFILE_DISABLE=true
 export GPG_TTY=$(tty)
 
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
+
+# This env must be set in MacOS to ensure that docker py works
+# https://bugs.python.org/issue35219
+export BJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
