@@ -15,6 +15,7 @@ append-to-path /usr/X11R6/bin
 # OPENSSL
 set -gx LDFLAGS "-L/usr/local/opt/openssl/lib"
 set -gx CPPFLAGS "-I/usr/local/opt/openssl/include"
+set -gx CFLAGS "-I/usr/local/include -L/usr/local/lib"
 
 # NODE
 set -gx PATH $PATH ./node_modules/.bin
