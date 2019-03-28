@@ -1,10 +1,10 @@
-[include]
-	path = ~/.gitconfig.local
-
 [user]
 	name = Janilton Maciel
 	email = janilton@gmail.com
 	#useConfigOnly = true
+
+[include]
+	path = ~/.gitconfig.local
 
 [alias]
 
@@ -201,7 +201,7 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 	tool = vscode
-	ff = false
+	# ff = false
 
 [mergetool "vscode"]
 	cmd = "code --wait "
