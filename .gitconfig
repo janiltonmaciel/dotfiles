@@ -36,7 +36,7 @@
 	please = push --force-with-lease
 	commend = commit --amend --no-edit
 	fpr = fetch-pr
-	lt = log --tags --decorate --simplify-by-decoration --oneline	
+	lt = log --tags --decorate --simplify-by-decoration --oneline
 
 
 	# View the current working tree status using the short format
@@ -238,3 +238,5 @@
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
+[url "gitlab@gitlab.globoi.com:"]
+  insteadOf = https://gitlab.globoi.com/

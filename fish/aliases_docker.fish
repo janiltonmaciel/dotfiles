@@ -1,5 +1,5 @@
 
-# DOCKER 
+# DOCKER
 # https://bobcares.com/blog/how-to-clear-docker-cache-and-save-disk-space/2/
 
 alias d='docker'
@@ -10,9 +10,10 @@ alias dcls='docker container ls'
 alias dclsa='docker container ls -a'
 alias dclse='docker container ls -f status=exited'
 alias dcrm='docker container rm (docker container ls -q -f status=exited -f status=created) 2>/dev/null'
-alias dcexec='docker container exec -it (docker container ls -l -q) /bin/bash'
-alias dcexeca='docker container exec -it (docker container ls -l -q) /bin/ash'
-alias dcichild="docker inspect --format='{{.Id}} {{.Parent}}' (docker images --filter since=307767e90d0d --quiet)"
+alias dcexec='docker container exec -it (docker container ls -l -q) /bin/sh'
+alias dcstop="docker container rm -f (docker container ls -q) 2> /dev/nul"
+# alias dcichild="docker inspect --format='{{.Id}} {{.Parent}}' (docker images --filter since=307767e90d0d --quiet)"
+
 
 function dexec -d 'docker container exec'
   # Usage: dexec (friendly-name)
@@ -20,7 +21,7 @@ function dexec -d 'docker container exec'
 end
 
 
-# 
+#
 alias dcnode='docker container run --rm -it -v (pwd):/app node:8.11-alpine /bin/ash'
 
 function dcrmf -d 'Para e remove o docker container'

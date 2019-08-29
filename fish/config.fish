@@ -1,13 +1,10 @@
 source ~/.config/fish/path.fish
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/aliases_docker.fish
-# source ~/.config/fish/chpwd.fish
-source ~/.config/fish/functions.fish
-# source ~/.config/fish/chromium.fish
 eval (python -m virtualfish compat_aliases)
 
 # THEME PURE #
-set fish_function_path $HOME/.config/fish/functions/pure $fish_function_path
+# set fish_function_path $HOME/.config/fish/functions/pure $fish_function_path
 
 # Completions
 function make_completion --argument-names alias command
