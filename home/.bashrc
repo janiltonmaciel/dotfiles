@@ -1,3 +1,6 @@
+[ -n "$PS1" ] && source ~/.bash_profile
+
+
 # open file descriptor 5 such that anything written to /dev/fd/5
 # # is piped through ts and then to /tmp/timestamps
 # exec 5> >(ts -i "%.s" >> /tmp/timestamps)
@@ -8,8 +11,3 @@
 # # Enable tracing
 # set -x
 
-
-[ -n "$PS1" ] && source ~/.bash_profile
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"

@@ -1,5 +1,24 @@
+# Easier navigation: .., ..., ~ and -
+function ..    ; cd .. ; end
+function ...   ; cd ../.. ; end
+function ....  ; cd ../../.. ; end
+function ..... ; cd ../../../.. ; end
+
+# Utilities
+# function g        ; git $argv ; end
+function grep     ; command grep --color=auto $argv ; end
+
+alias chmox='chmod +x'
+
+alias cask='brew cask' # i <3 u cask
+alias where=which # sometimes i forget
+
+alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
+
+alias push="git push"
 
 alias ag='ag --follow --hidden'
+
 alias diskspace_report="df -P -kHl"
 alias free_diskspace_report="diskspace_report"
 
@@ -19,11 +38,21 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 # copy working directory
 alias cwd='pwd | tr -d "\r\n" | pbcopy'
 
+
+# Recursively delete `.DS_Store` files
+alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"
+
 # Shortcuts
 alias ungz="gunzip -k"
+alias c clear
 
 # File size
 alias fs="stat -f \"%z bytes\""
+
+# emptytrash written as a function
+
+# Update installed Ruby gems, Homebrew, npm, and their installed packages
+alias brew_update="brew -v update; brew upgrade --force-bottle; brew cleanup; brew cleanup --prune-prefix; brew doctor"
 
 alias reset_sound="sudo killall coreaudiod"
 

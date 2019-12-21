@@ -6,6 +6,7 @@ alias d='docker'
 alias dm='docker-machine'
 alias dc='docker-compose'
 
+# DOCKER CONTAINER
 alias dcls='docker container ls'
 alias dclsa='docker container ls -a'
 alias dclse='docker container ls -f status=exited'
@@ -13,28 +14,37 @@ alias dcrm='docker container rm (docker container ls -q -f status=exited -f stat
 alias dcexec='docker container exec -it (docker container ls -l -q) /bin/sh'
 alias dcstop="docker container rm -f (docker container ls -q) 2> /dev/nul"
 # alias dcichild="docker inspect --format='{{.Id}} {{.Parent}}' (docker images --filter since=307767e90d0d --quiet)"
-
+# alias dcnode='docker container run --rm -it -v (pwd):/app node:8.11-alpine /bin/ash'
 
 function dexec -d 'docker container exec'
   # Usage: dexec (friendly-name)
   docker container exec -it "$argv" /bin/bash
 end
 
-
-#
-alias dcnode='docker container run --rm -it -v (pwd):/app node:8.11-alpine /bin/ash'
-
 function dcrmf -d 'Para e remove o docker container'
   # Usage: dcrmf (friendly-name)
   docker container rm -f "$argv"
 end
 
-
-# docker ps -a | awk '{ print $1,$2 }' | grep centos:7 | awk '{print $1 }' | xargs -I {} docker rm {}
+# DOCKER IMAGE
 alias dils='docker image ls'
 alias dilsa='docker image ls -a'
-alias dilsd='docker image ls -f dangling=true'
 alias dirmd='docker image rm (docker image ls -q -f dangling=true) 2>/dev/null'
+
+function difind -d 'docker image find'
+  # Usage: difind test (friendly-name)
+  docker image ls -f "reference=*$argv*:*"
+end
+
+function difindi -d 'docker image find return container id'
+  # Usage: difind test (friendly-name)
+  docker image ls -q -f "reference=*$argv*:*"
+end
+
+function dirm -d 'Remove images docker'
+  # Usage: dirm (friendly-name)
+  docker image rm "$argv"
+end
 
 function dma -d 'Ativa o docker-machine ao ambiente'
     if test (count $argv) -gt 0

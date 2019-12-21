@@ -1,23 +1,15 @@
-# 
-
 # Load our dotfiles like ~/.bash_prompt, etc…
 #   ~/.extra can be used for settings you don’t want to commit,
 #   Use it to configure your PATH, thus it being first in line.
-for file in ~/.{bash_prompt,exports,aliases,functions}; do
+for file in ~/.{exports,aliases,functions}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
 
-# generic colouriser
-GRC=`which grc`
-if [ "$TERM" != dumb ] && [ -n "$GRC" ]
-    then
-        alias colourify="$GRC -es --colour=auto"
-        alias configure='colourify ./configure'
-        for app in {diff,make,gcc,g++,ping,traceroute}; do
-            alias "$app"='colourify '$app
-    done
-fi
+source ~/.fzf.bash
+source ~/.bash_prompt
+source /usr/local/bin/virtualenvwrapper.sh
+source "$NVM_DIR/nvm.sh"
 
 # highlighting inside manpages and elsewhere
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
@@ -58,18 +50,6 @@ shopt -s cmdhist
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # ^ the only downside with this is [up] on the readline will go over all history not just this bash session.
-
-
-
-##
-## hooking in other apps…
-##
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-# # Load RVM into a shell session *as a function*
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 
 ##
 ## Completion…
@@ -113,6 +93,3 @@ shopt -s dirspell 2> /dev/null
 
 # Turn on recursive globbing (enables ** to recurse all directories)
 shopt -s globstar 2> /dev/null
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export PATH="$HOME/.poetry/bin:$PATH"

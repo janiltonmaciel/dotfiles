@@ -146,10 +146,13 @@ main_local
 
 
 # finds all .dotfiles in this folder
-declare -a FILES_TO_SYMLINK=$(find . -type f -maxdepth 1 -name ".*" -not -name .DS_Store -not -name .git -not -name .osx | sed -e 's|//|/|' | sed -e 's|./.|.|')
-FILES_TO_SYMLINK="$FILES_TO_SYMLINK fish omf vscode/snippets vscode/settings.json"
+# declare -a FILES_TO_SYMLINK=$(find home -type f -maxdepth 1 -name ".*" -not -name .DS_Store -not -name .git -not -name .osx | sed -e 's|home/||')
+# FILES_TO_SYMLINK="$FILES_TO_SYMLINK fish omf vscode/snippets vscode/settings.json"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+declare -a FILES_HOME=$(find home -type f -maxdepth 1 -name ".*" -not -name .DS_Store -not -name .git -not -name .osx | sed -e 's|home/||')
+declare -a FILES="fish omf"
 
 main() {
 
@@ -157,18 +160,9 @@ main() {
     local sourceFile=""
     local targetFile=""
 
-    for i in ${FILES_TO_SYMLINK[@]}; do
-        case "$i" in
-        "fish" | "omf") targetFile="$HOME/.config/$i" ;;
-        "vscode/snippets") targetFile="$HOME/Library/Application Support/Code/User/snippets" ;;
-        "vscode/settings.json") targetFile="$HOME/Library/Application Support/Code/User/settings.json" ;;
-        *) targetFile="$HOME/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")" ;;
-        esac
-        sourceFile="$(pwd)/$i"
-
-        # echo "file: $i"
-        # echo "sourceFile: $sourceFile"
-        # echo "targetFile: $targetFile"
+    for i in ${FILES_HOME[@]}; do
+        targetFile="$HOME/$i"
+        sourceFile="$(pwd)/home/$i"
 
         if [ -e "$targetFile" ]; then
             if [ "$(readlink "$targetFile")" != "$sourceFile" ]; then
@@ -187,8 +181,65 @@ main() {
         else
             execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
         fi
-
     done
+
+
+    for i in ${FILES[@]}; do
+        targetFile="$HOME/.config/$i"
+        sourceFile="$(pwd)/$i"
+
+        if [ -e "$targetFile" ]; then
+            if [ "$(readlink "$targetFile")" != "$sourceFile" ]; then
+
+                ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
+                if answer_is_yes; then
+                    rm -rf "$targetFile"
+                    execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+                else
+                    print_error "$targetFile → $sourceFile"
+                fi
+
+            else
+                print_success "$targetFile → $sourceFile"
+            fi
+        else
+            execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+        fi
+    done
+
+
+    # for i in ${FILES_TO_SYMLINK[@]}; do
+    #     case "$i" in
+    #     "fish" | "omf") targetFile="$HOME/.config/$i" ;;
+    #     "vscode/snippets") targetFile="$HOME/Library/Application Support/Code/User/snippets" ;;
+    #     "vscode/settings.json") targetFile="$HOME/Library/Application Support/Code/User/settings.json" ;;
+    #     *) targetFile="$HOME/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")" ;;
+    #     esac
+    #     sourceFile="$(pwd)/$i"
+
+    #     echo "file: $i"
+    #     echo "sourceFile: $sourceFile"
+    #     echo "targetFile: $targetFile"
+
+    #     # if [ -e "$targetFile" ]; then
+    #     #     if [ "$(readlink "$targetFile")" != "$sourceFile" ]; then
+
+    #     #         ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
+    #     #         if answer_is_yes; then
+    #     #             rm -rf "$targetFile"
+    #     #             execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+    #     #         else
+    #     #             print_error "$targetFile → $sourceFile"
+    #     #         fi
+
+    #     #     else
+    #     #         print_success "$targetFile → $sourceFile"
+    #     #     fi
+    #     # else
+    #     #     execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+    #     # fi
+
+    # done
 
 }
 

@@ -77,7 +77,7 @@ brew install fish # shellfish
 brew install nmap
 brew install socat
 
-# https://github.com/FiloSottile/mkcert 
+# https://github.com/FiloSottile/mkcert
 brew install mkcert
 brew install nss
 brew install httpie

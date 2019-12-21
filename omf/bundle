@@ -1,7 +1,3 @@
-#package nvm
-#package rvm
-package foreign-env
-package virtualfish
-package z
+package rvm
+theme bobthefish
 theme default
-theme pure
