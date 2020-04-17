@@ -194,9 +194,11 @@
 [submodule]
 	fetchJobs = 4
 
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+
 # URL shorthands
 [url "git@github.com:"]
-
 	insteadOf = "gh:"
 	pushInsteadOf = "github:"
 	pushInsteadOf = "git://github.com/"

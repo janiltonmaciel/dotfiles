@@ -38,3 +38,11 @@ set -U fish_user_paths $HOME/.poetry/bin $fish_user_paths
 # Locale
 set -Ux LC_ALL en_US.UTF-8
 set -Ux LANG en_US.UTF-8
+
+
+# JAVA
+set -U fish_user_paths /usr/local/opt/openjdk/bin $fish_user_paths
+
+
+# LOCAL BIN
+set -U fish_user_paths /usr/local/bin $fish_user_paths
