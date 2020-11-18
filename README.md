@@ -66,3 +66,15 @@ Mathias's repo is the canonical for this, but you should probably run his or min
 
 One-off binaries that aren't via an npm global or homebrew. [git open](https://github.com/paulirish/git-open), [coloredlogcat](https://developer.sinnerschrader-mobile.com/colored-logcat-reloaded/507/), [git-overwritten](https://github.com/mislav/dotfiles/blob/master/bin/git-overwritten)
 
+
+
+In order to automatically activate the virtualenv when cding to a project, do the following:
+$ touch ~/.config/fish/conf.d/__auto_venv.fish
+And paste the following:
+function __auto_venv --on-variable PWD --description "Automatically activate python venv"
+  set -l venv_name (basename $PWD | tr . -)
+
+  if test -d $HOME/.virtualenvs/$venv_name
+    source $HOME/.virtualenvs/$venv_name/bin/activate.fish
+  end
+end

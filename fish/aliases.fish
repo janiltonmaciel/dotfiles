@@ -2,6 +2,10 @@
 alias ag='ag --follow --hidden'
 alias diskspace_report="df -P -kHl"
 alias free_diskspace_report="diskspace_report"
+alias fupath="echo $fish_user_paths | tr ' ' '\n'"
+alias clean_ipython="rm -rf $HOME/.ipython/profile_default/history.sqlite"
+alias clean_ds_store="find . -name '.DS_Store' -exec rm -f '{}' ';'"
+alias clean_origs="find . '(' -name '*.orig' -o -name '*.BACKUP.*' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' ')' -print0 | xargs -0 rm -f"
 
 # Networking. IP address, dig, DNS
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

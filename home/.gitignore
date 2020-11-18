@@ -16,7 +16,10 @@ third_party/WebKit/Source/devtools/front_end/audits2/lighthouse/renderer/report-
 # git credential file
 .gitconfig.local
 
-# no thx
+# node
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 node_modules
 
 # Folder view configuration files

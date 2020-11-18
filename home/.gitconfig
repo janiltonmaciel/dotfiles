@@ -42,10 +42,10 @@
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
 	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
-	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+	# di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
 	# Pull in remote changes for the current repository and all its submodules
-	p = !"git pull; git submodule foreach git pull origin master"
+	# p = !"git pull; git submodule foreach git pull origin master"
 
 	# Clone a repository including all submodules
 	c = clone --recursive
@@ -57,6 +57,7 @@
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
+	brs = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:cyan)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
 
 	# List aliases
 	aliases = config --get-regexp alias
@@ -68,23 +69,23 @@
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
 
 	# Remove the old tag with this name and tag the latest commit with it.
-	retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
+	# retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
 
 	# Find branches containing commit
-	fb = "!f() { git branch -a --contains $1; }; f"
+	# fb = "!f() { git branch -a --contains $1; }; f"
 
 	# Find tags containing commit
-	ft = "!f() { git describe --always --contains $1; }; f"
+	# ft = "!f() { git describe --always --contains $1; }; f"
 
 	# Find commits by source code
-	fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+	# fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
 
 	# Find commits by commit message
-	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+	# fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
 
 	# Remove branches that have already been merged with master
 	# a.k.a. ‘delete merged’
-	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+	# dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
 	# List contributors with number of commits
 	contributors = shortlog --summary --numbered
@@ -120,40 +121,33 @@
 	editor = code --wait
 
 [color]
-
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
 	ui = auto
 
 [color "branch"]
-
 	current = yellow reverse
 	local = yellow
 	remote = green
 
 [color "diff"]
+	commit = yellow bold
+	frag = magenta bold
+	meta = 11
+	new = green bold
+	old = red bold
+	whitespace = red reverse
 
-	meta = yellow bold
-	frag = magenta bold # line info
-	old = red # deletions
-	new = green # additions
+[color "diff-highlight"]
+	newHighlight = green bold 22
+	newNormal = green bold
+	oldHighlight = red bold 52
+	oldNormal = red bold
 
 [color "status"]
-
-	added = yellow
-	changed = green
+	added = green
+	changed = yellow
 	untracked = cyan
-
-# [merge]
-# 	tool = diffmerge
-# [mergetool "diffmerge"]
-# 	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
-# 	trustExitCode = true
-# 	keepBackup = false
-# [diff]
-# 	tool = diffmerge
-# [difftool]
-# 	prompt = false
 
 [diff]
 	tool = vscode
@@ -175,17 +169,27 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 	tool = vscode
-	# ff = false
+
+	conflictStyle = merge
+  	ff = no
+  	commit = no
+  	summary = true
 
 [mergetool "vscode"]
 	cmd = "code --wait "
 
 [push]
-
 	# https://git-scm.com/docs/git-config#git-config-pushdefault
 	default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
+
+[pull]
+	rebase = true
+
+[commit]
+  template = ~/.gitmessage
+  verbose = true
 
 [grep]
 	extendRegexp = true

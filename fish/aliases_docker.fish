@@ -1,6 +1,10 @@
 
 # DOCKER
 # https://bobcares.com/blog/how-to-clear-docker-cache-and-save-disk-space/2/
+d
+
+dc-ls
+dc-rm
 
 alias d='docker'
 alias dm='docker-machine'
@@ -8,18 +12,18 @@ alias dc='docker-compose'
 
 # DOCKER CONTAINER
 alias dcls='docker container ls'
-alias dclsa='docker container ls -a'
-alias dclse='docker container ls -f status=exited'
-alias dcrm='docker container rm (docker container ls -q -f status=exited -f status=created) 2>/dev/null'
+# alias dclsa='docker container ls -a'
+# alias dclse='docker container ls -f status=exited'
+alias dcrm='docker container rm (docker container ls -q -f status=exited -f status=created) 2> /dev/null'
 alias dcexec='docker container exec -it (docker container ls -l -q) /bin/sh'
-alias dcstop="docker container rm -f (docker container ls -q) 2> /dev/nul"
-# alias dcichild="docker inspect --format='{{.Id}} {{.Parent}}' (docker images --filter since=307767e90d0d --quiet)"
+alias dcstopall="docker container rm -f (docker container ls -q) 2> /dev/null"
+# alias dcichild="docker inspect --format='{{.Id}} {{.Parent}}' (docker image ls -q)"
 # alias dcnode='docker container run --rm -it -v (pwd):/app node:8.11-alpine /bin/ash'
 
-function dexec -d 'docker container exec'
-  # Usage: dexec (friendly-name)
-  docker container exec -it "$argv" /bin/bash
-end
+# function dexec -d 'docker container exec'
+#   # Usage: dexec (friendly-name)
+#   docker container exec -it "$argv" /bin/bash
+# end
 
 function dcrmf -d 'Para e remove o docker container'
   # Usage: dcrmf (friendly-name)
@@ -29,7 +33,7 @@ end
 # DOCKER IMAGE
 alias dils='docker image ls'
 alias dilsa='docker image ls -a'
-alias dirmd='docker image rm (docker image ls -q -f dangling=true) 2>/dev/null'
+alias dirm='docker image rm (docker image ls -q -f dangling=true) 2>/dev/null'
 
 function difind -d 'docker image find'
   # Usage: difind test (friendly-name)
