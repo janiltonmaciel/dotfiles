@@ -1,3 +1,3 @@
-function d-ils
+function dils
     command docker image ls $argv
 end
