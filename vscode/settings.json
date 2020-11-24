@@ -1,0 +1,161 @@
+{
+	// EDITOR
+	"editor.fontFamily": "'Inconsolata Condensed', Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "editor.rulers": [
+		120
+    ],
+    "editor.tabSize": 4,
+    "editor.trimAutoWhitespace": true,
+    "editor.tabCompletion": "on",
+    "editor.cursorStyle": "line",
+    "editor.cursorBlinking": "solid",
+    "editor.renderWhitespace": "all",
+    "editor.fontWeight": "300",
+    "editor.minimap.enabled": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": true,
+    "editor.smoothScrolling": true,
+    "editor.lineHeight": 24,
+	"editor.formatOnSave": true,
+	"editor.formatOnSaveMode": "modifications",
+
+    // TERMINAL
+    "terminal.external.osxExec": "iTerm.app",
+	"terminal.integrated.shell.osx": "/usr/local/bin/fish",
+	"terminal.integrated.fontSize": 14,
+	"terminal.integrated.cursorBlinking": true,
+	"terminal.integrated.cursorStyle": "line",
+
+    // EXPLORER
+    "explorer.openEditors.visible": 0,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "explorer.decorations.badges": false,
+
+    // WINDOW
+    "window.restoreWindows": "none",
+    "window.title": "${activeEditorMedium}${separator}${rootName}",
+    "window.zoomLevel": 0,
+	"window.newWindowDimensions": "maximized",
+
+    // FILES
+    "files.associations": {
+		"Dockerfile.*": "dockerfile",
+		"*.txt": "plaintext",
+		"*.tmpl": "gotemplate"
+	  },
+	  "files.autoSave": "afterDelay",
+	  "files.autoSaveDelay": 50000,
+	  "files.insertFinalNewline": true,
+	  "files.trimTrailingWhitespace": true,
+	  "files.exclude": {
+		".gitconfig": true,
+		".pytest_cache/": true,
+		".sass-cache": true,
+		"**/__pycache__": true,
+		"**/.DS_Store": true,
+		"**/.git": true,
+		"**/*.egg-info": true,
+		"**/*.pyc": true,
+		"**/bower_components": true,
+		"**/node_modules": true,
+		"Godeps/": true,
+		"vendor/": true,
+		"yarn.lock": true
+	  },
+	  "files.watcherExclude": {
+		"vendor/**": true
+	  },
+
+    // EXTENSIONS
+    "extensions.autoUpdate": true,
+    "extensions.ignoreRecommendations": false,
+
+	// WORKBENCH
+	"workbench.sideBar.location": "left",
+	"workbench.startupEditor": "newUntitledFile",
+	"workbench.fontAliasing": "auto",
+	// "workbench.fontAliasing": "antialiased", # jamil
+	// "workbench.iconTheme": "material-icon-theme", # jamil
+	"workbench.editor.enablePreview": true,
+	"workbench.editor.showIcons": true,
+	"workbench.editor.highlightModifiedTabs": true,
+	"workbench.preferredDarkColorTheme": "Dracula",
+
+    // GOLANG
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": [
+      "--enable-all", "--disable", "gochecknoglobals,lll,wsl,maligned,misspell,nlreturn"
+    ],
+    "go.vetOnSave": "off",
+    "go.docsTool": "gogetdoc",
+    "go.formatTool": "goreturns",
+    "go.useLanguageServer": true,
+    "go.buildOnSave": "package",
+    "go.delveConfig": {
+      "dlvLoadConfig": {
+        "followPointers": true,
+        "maxVariableRecurse": 1,
+        "maxStringLen": 64,
+        "maxArrayValues": 64,
+        "maxStructFields": -1
+      },
+      "apiVersion": 1,
+      "showGlobalVariables": true
+    },
+	"go.coverageDecorator": {
+		"type": "gutter"
+	},
+	"go.useCodeSnippetsOnFunctionSuggest": true,
+	"go.testTimeout": "3m",
+	"go.autocompleteUnimportedPackages": true,
+	"go.coverOnSingleTest": true,
+	"go.alternateTools": {
+		"go-langserver": "gopls"
+	},
+	"go.languageServerExperimentalFeatures": {
+		"format": true,
+		"autoComplete": true
+	},
+	"go.buildFlags": [
+		"-v"
+	],
+
+    // SEARCH
+    "search.exclude": {
+		"**/bower_components": true,
+		"**/node_modules": true,
+		"vendor/**": true
+	  },
+
+	"search.smartCase": true,
+	"search.useGlobalIgnoreFiles": true,
+	"search.showLineNumbers": true,
+
+	// TELEMETRY
+	"telemetry.enableCrashReporter": false,
+	"telemetry.enableTelemetry": false,
+
+	// BREADCRUMBS
+	"breadcrumbs.enabled": true,
+
+    // PYTHON
+    "python.languageServer": "Pylance",
+    "python.venvPath": "~/.virtualenvs",
+    // "python.linting.enabled": true,
+    // "python.linting.flake8Enabled": true,
+
+    // TYPESCRIPT
+    "typescript.check.npmIsInstalled": false,
+
+	// GITLENS
+	"gitlens.defaultDateStyle": "absolute",
+	"gitlens.advanced.messages": {
+	"suppressCommitNotFoundWarning": true,
+	"suppressShowKeyBindingsNotice": true
+	},
+	"workbench.iconTheme": "eq-material-theme-icons-light"
+}
