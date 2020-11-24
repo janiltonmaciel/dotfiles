@@ -11,4 +11,4 @@ setup-brew:
 
 setup-macos:
 	@echo "Setup macOS..."
-	@./brew/set-defaults.sh
+	@./macos/set-defaults.sh
