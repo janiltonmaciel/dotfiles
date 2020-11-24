@@ -1,0 +1,40 @@
+*~
+*.swp
+*.orig
+*.rbc
+.idea
+*.iml
+.classpath
+.project
+.settings
+.vscode/
+dump.rdb
+
+# node
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+node_modules
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Compiled Python files
+*.pyc
+
+# fish shell
+fishd.*
+.config/fish/fish_history
+fish/fish_history
+
+# random
+shilocation
