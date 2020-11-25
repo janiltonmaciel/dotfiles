@@ -4,6 +4,7 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 14,
     "editor.rulers": [
+		80,
 		120
     ],
     "editor.tabSize": 4,
@@ -84,6 +85,8 @@
 	"workbench.editor.showIcons": true,
 	"workbench.editor.highlightModifiedTabs": true,
 	"workbench.preferredDarkColorTheme": "Dracula",
+	"workbench.colorTheme": "Dracula",
+	"workbench.iconTheme": "material-icon-theme",
 
     // GOLANG
     "go.lintTool": "golangci-lint",
@@ -154,8 +157,8 @@
 	// GITLENS
 	"gitlens.defaultDateStyle": "absolute",
 	"gitlens.advanced.messages": {
-	"suppressCommitNotFoundWarning": true,
-	"suppressShowKeyBindingsNotice": true
-	},
-	"workbench.iconTheme": "eq-material-theme-icons-light"
+		"suppressCommitNotFoundWarning": true,
+		"suppressShowKeyBindingsNotice": true
+	}
+
 }
