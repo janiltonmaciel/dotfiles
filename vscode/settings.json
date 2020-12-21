@@ -20,8 +20,8 @@
     "editor.insertSpaces": true,
     "editor.smoothScrolling": true,
     "editor.lineHeight": 24,
-	"editor.formatOnSave": true,
-	"editor.formatOnSaveMode": "modifications",
+	// "editor.formatOnSave": true,
+	// "editor.formatOnSaveMode": "modifications",
 
     // TERMINAL
     "terminal.external.osxExec": "iTerm.app",

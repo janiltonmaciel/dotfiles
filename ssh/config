@@ -30,7 +30,7 @@ Host *
 	# quicker connection times.
 	ControlMaster auto
 	#ControlPath ~/.ssh/control/%C
-	ControlPath ~/.ssh/control/control:%h:%p:%r
+	#ControlPath ~/.ssh/control/control:%h:%p:%r
 	ControlPersist 1800
 	# VisualHostKey yes
 

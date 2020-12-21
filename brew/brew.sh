@@ -124,6 +124,8 @@ brew install asciidoc
 brew install goreleaser/tap/goreleaser
 brew install janiltonmaciel/tap/statiks
 brew install tsuru/tsuru/tsuru
+brew install kubectl
+brew install minikube
 
 # Remove outdated versions from the cellar
 brew cleanup
