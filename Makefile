@@ -2,6 +2,10 @@ setup:
 	@echo "Setup dotfiles..."
 	@./script/bootstrap.fish
 
+setup-private:
+	@echo "Setup private..."
+	@./private.fish
+
 setup-brew:
 	@echo "Setup brew..."
 	@./brew/brew.sh
@@ -12,6 +16,3 @@ setup-macos:
 	@echo "Setup macOS..."
 	@./macos/set-defaults.sh
 
-setup-private:
-	@echo "Setup private..."
-	@./private.fish

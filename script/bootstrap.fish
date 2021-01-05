@@ -106,17 +106,20 @@ function setup_gitconfig
 		or abort 'failed to setup git'
 end
 
-function setup
+function setup_conf
 	for f in $DOTFILES_ROOT/*/conf.fish
 		source $f
 	end
+end
 
+function setup_install
 	for installer in */install.fish
 		$installer
 			and success $installer
 			or abort $installer
 	end
 end
+
 
 function setup_private
 	$DOTFILES_ROOT/private.fish
@@ -126,14 +129,17 @@ setup_init
 	and success 'setup init'
 	or abort 'setup init'
 
-
 setup_gitconfig
 	and success 'setup git'
 	or abort 'setup git'
 
-setup
-	and success 'setup'
-	or abort 'setup'
+setup_conf
+	and success 'setup conf'
+	or abort 'setup conf'
+
+setup_install
+	and success 'setup install'
+	or abort 'setup install'
 
 setup_private
 	and success 'setup private'

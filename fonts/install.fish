@@ -10,7 +10,7 @@ switch (uname)
 case Darwin
 	if command -qs brew
 		brew tap -q homebrew/cask-fonts
-			and brew cask install font-inconsolata font-inconsolata-for-powerline
+			and brew install font-inconsolata font-inconsolata-for-powerline
 	else
 		install ~/Library/Fonts
 	end
