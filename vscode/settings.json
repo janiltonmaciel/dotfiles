@@ -38,8 +38,7 @@
 
     // WINDOW
     "window.restoreWindows": "none",
-    "window.title": "${activeEditorMedium}${separator}${rootName}",
-    "window.zoomLevel": 0,
+	"window.title": "${activeEditorMedium}${separator}${rootName}",
 	"window.newWindowDimensions": "maximized",
 
     // FILES
@@ -159,6 +158,7 @@
 	"gitlens.advanced.messages": {
 		"suppressCommitNotFoundWarning": true,
 		"suppressShowKeyBindingsNotice": true
-	}
+	},
+	"debug.javascript.autoAttachFilter": "always"
 
 }

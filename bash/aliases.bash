@@ -124,3 +124,4 @@ alias dilsd='docker image ls -f dangling=true'
 
 # remove todas as images dangling (normalmente com error no build)
 alias dirmd='docker image rm (docker image ls -q -f dangling=true) 2>/dev/null'
+

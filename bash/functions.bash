@@ -186,3 +186,8 @@ mysql () {
 cleandsstores() {
     find . -name '.DS_Store' -exec rm -f '{}' ';'
 }
+
+
+aws () {
+	docker run --rm -it -v ~/.aws:/root/.aws -v "$(PWD)":/aws amazon/aws-cli  "$@"
+}
