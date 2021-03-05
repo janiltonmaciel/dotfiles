@@ -108,5 +108,8 @@ brew install wrk
 
 # brew install mysql --client-only
 
+brew install exa
+brew install htop
+
 # Remove outdated versions from the cellar
 brew cleanup

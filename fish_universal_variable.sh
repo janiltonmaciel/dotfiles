@@ -67,3 +67,7 @@ set -U fish_user_paths ./node_modules/.bin $fish_user_paths
 
 # LOCAL BIN
 set -U fish_user_paths /usr/local/bin $fish_user_paths
+
+set -U fish_user_paths /usr/local/bin
+
+set -Ua fish_user_paths /usr/local/bin

@@ -220,3 +220,7 @@
 
 [url "gitlab@gitlab.globoi.com:"]
   insteadOf = https://gitlab.globoi.com/
+[credential]
+	helper = osxkeychain
+[difftool]
+	cmd = "code --wait --diff  "

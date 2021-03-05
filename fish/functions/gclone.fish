@@ -1,4 +1,4 @@
-function clone --description 'Clone repository and cd into it'
+function gclone --description 'Clone repository and cd into it'
     set -l dir ''
     switch (count $argv)
         case 1
