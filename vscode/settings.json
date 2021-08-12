@@ -1,8 +1,7 @@
 {
 	// EDITOR
 	"editor.fontFamily": "'Inconsolata Condensed', Fira Code, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 14,
+	"editor.fontLigatures": true,
     "editor.rulers": [
 		80,
 		120
@@ -14,9 +13,9 @@
     "editor.cursorBlinking": "solid",
     "editor.renderWhitespace": "all",
     "editor.fontWeight": "300",
+	"editor.fontSize": 12,
     "editor.minimap.enabled": false,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.detectIndentation": true,
+	"editor.multiCursorModifier": "ctrlCmd",
     "editor.insertSpaces": true,
     "editor.smoothScrolling": true,
     "editor.lineHeight": 24,
@@ -25,7 +24,7 @@
 
     // TERMINAL
     "terminal.external.osxExec": "iTerm.app",
-	"terminal.integrated.shell.osx": "/usr/local/bin/fish",
+	"terminal.integrated.defaultProfile.osx": "/usr/local/bin/fish",
 	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.cursorStyle": "line",
@@ -74,7 +73,7 @@
     "extensions.autoUpdate": true,
     "extensions.ignoreRecommendations": false,
 
-	// WORKBENCH
+	// WORKBENCH=
 	"workbench.sideBar.location": "left",
 	"workbench.startupEditor": "newUntitledFile",
 	"workbench.fontAliasing": "auto",
@@ -88,14 +87,14 @@
 	"workbench.iconTheme": "material-icon-theme",
 
     // GOLANG
+	"go.toolsManagement.autoUpdate": true,
     "go.lintTool": "golangci-lint",
     "go.lintFlags": [
-      "--enable-all", "--disable", "gochecknoglobals,lll,wsl,maligned,misspell,nlreturn"
+      "--enable-all", "--disable", "exhaustivestruct,gochecknoglobals,lll,wsl,maligned,misspell,nlreturn"
     ],
     "go.vetOnSave": "off",
-    "go.docsTool": "gogetdoc",
-    "go.formatTool": "goreturns",
-    "go.useLanguageServer": true,
+	"go.docsTool": "gogetdoc",
+    // "go.useLanguageServer": true,
     "go.buildOnSave": "package",
     "go.delveConfig": {
       "dlvLoadConfig": {
@@ -115,13 +114,13 @@
 	"go.testTimeout": "3m",
 	"go.autocompleteUnimportedPackages": true,
 	"go.coverOnSingleTest": true,
-	"go.alternateTools": {
-		"go-langserver": "gopls"
-	},
-	"go.languageServerExperimentalFeatures": {
-		"format": true,
-		"autoComplete": true
-	},
+	// "go.alternateTools": {
+	// 	"go-langserver": "gopls"
+	// },
+	// "go.languageServerExperimentalFeatures": {
+	// 	"format": true,
+	// 	"autoComplete": true
+	// },
 	"go.buildFlags": [
 		"-v"
 	],
@@ -157,8 +156,32 @@
 	"gitlens.defaultDateStyle": "absolute",
 	"gitlens.advanced.messages": {
 		"suppressCommitNotFoundWarning": true,
-		"suppressShowKeyBindingsNotice": true
 	},
-	"debug.javascript.autoAttachFilter": "always"
-
+	"debug.javascript.autoAttachFilter": "disabled",
+	"todo-tree.tree.showScanModeButton": false,
+	"workbench.editorAssociations": {
+		"*.ipynb": "jupyter-notebook"
+	},
+	"git.ignoreMissingGitWarning": true,
+	"kite.showWelcomeNotificationOnStartup": false,
+	"cSpell.language": "pt,pt-PT,en",
+	"cSpell.userWords": [
+		"GRPC",
+		"activemq",
+		"brpaz",
+		"denylist",
+		"funcs",
+		"globoi",
+		"healthcheck",
+		"ioloop",
+		"janilton",
+		"kubernetes",
+		"otel",
+		"provison"
+	],
+	"notebook.cellToolbarLocation": {
+		"default": "right",
+		"jupyter-notebook": "left"
+	},
+	"window.zoomLevel": 1
 }
