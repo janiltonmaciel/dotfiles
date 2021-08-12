@@ -16,8 +16,8 @@ brew install coreutils
 # GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 brew install findutils
 # GNU `sed`, overwriting the built-in `sed`
-brew install gnu-sed --with-default-names
-brew install xclip
+# brew install gnu-sed --with-default-names
+# brew install xclip
 
 # Bash 4
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
@@ -33,32 +33,32 @@ brew install wget --with-iri
 # brew install vim --with-override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
+# brew install homebrew/dupes/screen
 
 # z hopping around folders
-brew install z
+brew install zoxide
 
 # run this script when this file changes guy.
-brew install entr
+# brew install entr
 
 # mtr - ping & traceroute. best.
-brew install mtr
-# allow mtr to run without sudo
-mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//')
-sudo chmod 4755 $mtrlocation/sbin/mtr
-sudo chown root $mtrlocation/sbin/mtr
+# brew install mtr
+# # allow mtr to run without sudo
+# mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//')
+# sudo chmod 4755 $mtrlocation/sbin/mtr
+# sudo chown root $mtrlocation/sbin/mtr
 
 
 
 # Record and share your terminal sessions
-brew install asciinema
+# brew install asciinema
 
 # Install other useful binaries
 # brew install the_silver_searcher
 brew install fzf
 
 brew install git
-brew install git-lfs
+# brew install git-lfs
 # brew install imagemagick --with-webp
 brew install rename
 brew install tree
@@ -69,7 +69,7 @@ brew install ssh-copy-id
 # brew install android-platform-tools
 # brew install pidcat   # colored logcat guy
 
-brew install ncdu # find where your diskspace went
+# brew install ncdu # find where your diskspace went
 
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
