@@ -32,5 +32,5 @@ export BJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export OPENFAAS_PREFIX="janilton"
 
 export NVM_DIR="$HOME/.nvm"
-
-
+export CFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"

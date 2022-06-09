@@ -1,33 +1,33 @@
 {
-	// EDITOR
-	"editor.fontFamily": "'Inconsolata Condensed', Fira Code, Menlo, Monaco, 'Courier New', monospace",
-	"editor.fontLigatures": true,
+    // EDITOR
+    "editor.fontFamily": "Hack Nerd Font, 'Inconsolata Condensed', Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
     "editor.rulers": [
-		80,
-		120
+        80,
+        120
     ],
     "editor.tabSize": 4,
     "editor.trimAutoWhitespace": true,
-    "editor.tabCompletion": "on",
     "editor.cursorStyle": "line",
     "editor.cursorBlinking": "solid",
     "editor.renderWhitespace": "all",
     "editor.fontWeight": "300",
-	"editor.fontSize": 12,
+    "editor.fontSize": 12,
     "editor.minimap.enabled": false,
-	"editor.multiCursorModifier": "ctrlCmd",
+    "editor.multiCursorModifier": "ctrlCmd",
     "editor.insertSpaces": true,
     "editor.smoothScrolling": true,
-    "editor.lineHeight": 24,
-	// "editor.formatOnSave": true,
-	// "editor.formatOnSaveMode": "modifications",
+    "editor.lineHeight": 20,
+	"editor.bracketPairColorization.enabled": true,
+	"editor.guides.bracketPairs":"active",
 
-    // TERMINAL
+		// TERMINAL
     "terminal.external.osxExec": "iTerm.app",
-	"terminal.integrated.defaultProfile.osx": "/usr/local/bin/fish",
-	"terminal.integrated.fontSize": 14,
-	"terminal.integrated.cursorBlinking": true,
-	"terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.defaultProfile.osx": "fish",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+	"terminal.integrated.fontFamily": "Hack Nerd Font",
 
     // EXPLORER
     "explorer.openEditors.visible": 0,
@@ -35,153 +35,116 @@
     "explorer.confirmDelete": false,
     "explorer.decorations.badges": false,
 
-    // WINDOW
-    "window.restoreWindows": "none",
-	"window.title": "${activeEditorMedium}${separator}${rootName}",
-	"window.newWindowDimensions": "maximized",
-
     // FILES
     "files.associations": {
-		"Dockerfile.*": "dockerfile",
-		"*.txt": "plaintext",
-		"*.tmpl": "gotemplate"
-	  },
-	  "files.autoSave": "afterDelay",
-	  "files.autoSaveDelay": 50000,
-	  "files.insertFinalNewline": true,
-	  "files.trimTrailingWhitespace": true,
-	  "files.exclude": {
-		".gitconfig": true,
-		".pytest_cache/": true,
-		".sass-cache": true,
-		"**/__pycache__": true,
-		"**/.DS_Store": true,
-		"**/.git": true,
-		"**/*.egg-info": true,
-		"**/*.pyc": true,
-		"**/bower_components": true,
-		"**/node_modules": true,
-		"Godeps/": true,
-		"vendor/": true,
-		"yarn.lock": true
-	  },
-	  "files.watcherExclude": {
-		"vendor/**": true
-	  },
+        "Dockerfile.*": "dockerfile",
+        "*.txt": "plaintext",
+        "*.tmpl": "gotemplate"
+      },
+      "files.autoSave": "afterDelay",
+      "files.autoSaveDelay": 50000,
+      "files.insertFinalNewline": true,
+      "files.trimTrailingWhitespace": true,
+      "files.exclude": {
+        "**/*.tfplan": true,
+        "**/.terraform.lock.hcl": true,
+        "**/.terraform": true,
+        ".gitconfig": true,
+        ".pytest_cache/": true,
+        ".sass-cache": true,
+        "**/__pycache__": true,
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/*.egg-info": true,
+        "**/*.pyc": true,
+        "**/bower_components": true,
+        "**/node_modules": true,
+        "Godeps/": true,
+        "vendor/": true,
+        "yarn.lock": true,
+		".bumpversion.cfg": true,
+		".coverage": true,
+		".coveragerc": true,
+		".flake8": true,
+      },
+      "files.watcherExclude": {
+        "vendor/**": true
+      },
 
     // EXTENSIONS
     "extensions.autoUpdate": true,
     "extensions.ignoreRecommendations": false,
 
-	// WORKBENCH=
-	"workbench.sideBar.location": "left",
-	"workbench.startupEditor": "newUntitledFile",
-	"workbench.fontAliasing": "auto",
-	// "workbench.fontAliasing": "antialiased", # jamil
-	// "workbench.iconTheme": "material-icon-theme", # jamil
-	"workbench.editor.enablePreview": true,
-	"workbench.editor.showIcons": true,
-	"workbench.editor.highlightModifiedTabs": true,
-	"workbench.preferredDarkColorTheme": "Dracula",
-	"workbench.colorTheme": "Dracula",
-	"workbench.iconTheme": "material-icon-theme",
+    // WORKBENCH=
+    "workbench.sideBar.location": "left",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.editor.enablePreview": true,
+    "workbench.editor.showIcons": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.iconTheme": "vscode-great-icons",
 
     // GOLANG
-	"go.toolsManagement.autoUpdate": true,
+    "go.useLanguageServer": true,
+    "go.toolsManagement.autoUpdate": true,
     "go.lintTool": "golangci-lint",
     "go.lintFlags": [
       "--enable-all", "--disable", "exhaustivestruct,gochecknoglobals,lll,wsl,maligned,misspell,nlreturn"
     ],
     "go.vetOnSave": "off",
-	"go.docsTool": "gogetdoc",
-    // "go.useLanguageServer": true,
     "go.buildOnSave": "package",
-    "go.delveConfig": {
-      "dlvLoadConfig": {
-        "followPointers": true,
-        "maxVariableRecurse": 1,
-        "maxStringLen": 64,
-        "maxArrayValues": 64,
-        "maxStructFields": -1
-      },
-      "apiVersion": 1,
-      "showGlobalVariables": true
+    // "go.delveConfig": {
+    //   "dlvLoadConfig": {
+    //     "followPointers": true,
+    //     "maxVariableRecurse": 1,
+    //     "maxStringLen": 64,
+    //     "maxArrayValues": 64
+    //   },
+    //   "apiVersion": 1,
+    //   "showGlobalVariables": true
+    // },
+    "go.coverageDecorator": {
+        "type": "gutter"
     },
-	"go.coverageDecorator": {
-		"type": "gutter"
-	},
-	"go.useCodeSnippetsOnFunctionSuggest": true,
-	"go.testTimeout": "3m",
-	"go.autocompleteUnimportedPackages": true,
-	"go.coverOnSingleTest": true,
-	// "go.alternateTools": {
-	// 	"go-langserver": "gopls"
-	// },
-	// "go.languageServerExperimentalFeatures": {
-	// 	"format": true,
-	// 	"autoComplete": true
-	// },
-	"go.buildFlags": [
-		"-v"
-	],
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.testTimeout": "3m",
+    "go.coverOnSingleTest": true,
+    "go.buildFlags": [
+        "-v"
+    ],
 
     // SEARCH
     "search.exclude": {
-		"**/bower_components": true,
-		"**/node_modules": true,
-		"vendor/**": true
-	  },
+        "**/bower_components": true,
+        "**/node_modules": true,
+        "vendor/**": true
+      },
 
-	"search.smartCase": true,
-	"search.useGlobalIgnoreFiles": true,
-	"search.showLineNumbers": true,
+    "search.smartCase": true,
+    "search.useGlobalIgnoreFiles": true,
+    "search.showLineNumbers": true,
 
-	// TELEMETRY
-	"telemetry.enableCrashReporter": false,
-	"telemetry.enableTelemetry": false,
-
-	// BREADCRUMBS
-	"breadcrumbs.enabled": true,
+    // BREADCRUMBS
+    "breadcrumbs.enabled": true,
 
     // PYTHON
     "python.languageServer": "Pylance",
     "python.venvPath": "~/.virtualenvs",
-    // "python.linting.enabled": true,
-    // "python.linting.flake8Enabled": true,
+	"python.linting.enabled": true,
+    "python.linting.prospectorEnabled": true,
+	"python.linting.prospectorArgs": ["-X"],
+	"[python]": {
+      "editor.defaultFormatter": "ms-python.python",
+      "editor.formatOnSave": true,
+      "editor.formatOnPaste": false,
+    },
 
-    // TYPESCRIPT
-    "typescript.check.npmIsInstalled": false,
+    // GITLENS
+    "gitlens.defaultDateStyle": "absolute",
+    "gitlens.advanced.messages": {
+        "suppressCommitNotFoundWarning": true
+    },
 
-	// GITLENS
-	"gitlens.defaultDateStyle": "absolute",
-	"gitlens.advanced.messages": {
-		"suppressCommitNotFoundWarning": true,
-	},
-	"debug.javascript.autoAttachFilter": "disabled",
-	"todo-tree.tree.showScanModeButton": false,
-	"workbench.editorAssociations": {
-		"*.ipynb": "jupyter-notebook"
-	},
-	"git.ignoreMissingGitWarning": true,
-	"kite.showWelcomeNotificationOnStartup": false,
-	"cSpell.language": "pt,pt-PT,en",
-	"cSpell.userWords": [
-		"GRPC",
-		"activemq",
-		"brpaz",
-		"denylist",
-		"funcs",
-		"globoi",
-		"healthcheck",
-		"ioloop",
-		"janilton",
-		"kubernetes",
-		"otel",
-		"provison"
-	],
-	"notebook.cellToolbarLocation": {
-		"default": "right",
-		"jupyter-notebook": "left"
-	},
-	"window.zoomLevel": 1
+
+  "redhat.telemetry.enabled": false,
+"telemetry.telemetryLevel": "crash"
 }

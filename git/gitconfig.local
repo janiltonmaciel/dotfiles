@@ -57,6 +57,8 @@
 	# List contributors with number of commits
 	contributors = shortlog --summary --numbered
 
+	merged = branch --all --merged
+
 [apply]
 
 	# Detect whitespace errors when applying a patch
@@ -182,7 +184,8 @@
 	insteadOf = "gist:"
 
 [url "gitlab@gitlab.globoi.com:"]
-  insteadOf = https://gitlab.globoi.com/
+    insteadOf = https://gitlab.globoi.com/
+    insteadOf = http://gitlab.globoi.com/
 
 [include]
 	path = ~/.gitconfig-private
