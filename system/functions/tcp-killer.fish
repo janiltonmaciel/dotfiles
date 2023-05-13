@@ -4,5 +4,5 @@
 function tcp-killer --description 'kill tcp socket'
 	#ex: tcp-killer ::1.56859 ::1.61613
 	vf activate tcp-killer
-	sudo python $DOTFILES/scripts/tcp-killer.py $argv
+	sudo python $DOTFILES/script/tcp-killer.py $argv
 end

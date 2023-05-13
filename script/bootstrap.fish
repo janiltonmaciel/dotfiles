@@ -35,7 +35,7 @@ function link_file -d "links a file keeping a backup"
 	if test -e $new
 		set newf (readlink $new)
 		if test "$newf" = "$old"
-			success "skipped $new -> $old"
+			success "SKIPPED $new -> $old"
 			return
 		else
 			mv $new $new.$backup
@@ -55,14 +55,31 @@ function setup_init
 	set -Ux DOTFILES "$HOME/.dotfiles"
 	set -Ux BREW_PREFIX (brew --prefix)
 
+	mkdir -p $HOME/.config/fish/completions/
+		and success 'CREATE DIR FISH COMPLETIONS'
+		or success 'DIR FISH COMPLETIONS'
+
 	mkdir -p $HOME/.config/fish/functions
-		and success 'fish functions'
-		or abort 'fish functions'
+		and success 'CREATE DIR FISH FUNCTIONS'
+		or abort 'FISH FUNCTIONS'
 
 	for src in $DOTFILES/*/functions.symlink/*.fish
 		link_file $src $HOME/.config/fish/functions/(basename $src) backup
 			or abort 'failed to link'
 	end
+
+	success "SET USER-PATHS-UNIVERSAL"
+	source $DOTFILES/fish/user-paths-universal.fish
+
+	success "SET VARIABLES-UNIVERSAL"
+	source $DOTFILES/fish/variables-universal.fish
+
+	link_file "$DOTFILES/fish/config.fish" "$HOME/.config/fish/config.fish" backup
+		or abort_echo "failed to link .config/fish/conf.fish"
+
+	link_file "$DOTFILES/fish/dotfiles.fish" "$HOME/.config/fish/conf.d/dotfiles.fish" backup
+		or abort_echo 'failed to link .config/fish/conf.d/dotfiles.fish'
+
 end
 
 
@@ -126,38 +143,38 @@ function setup_private
 end
 
 setup_init
-	and success 'setup init'
-	or abort 'setup init'
+	and success 'SETUP INIT'
+	or abort 'SETUP INIT'
 
 setup_gitconfig
-	and success 'setup git'
-	or abort 'setup git'
+	and success 'SETUP GIT'
+	or abort 'SETUP GIT'
 
 setup_conf
-	and success 'setup conf'
-	or abort 'setup conf'
+	and success 'SETUP CONF'
+	or abort 'SETUP CONF'
 
 setup_install
-	and success 'setup install'
-	or abort 'setup install'
+	and success 'SETUP INSTALL'
+	or abort 'SETUP INSTALL'
 
 setup_private
-	and success 'setup private'
-	or abort 'setup private'
+	and success 'SETUP PRIVATE'
+	or abort 'SETUP PRIVATE'
 
 if ! grep (command -v fish) /etc/shells
 	command -v fish | sudo tee -a /etc/shells
-		and success 'added fish to /etc/shells'
-		or abort 'setup /etc/shells'
+		and success 'ADDED FISH TO /etc/shells'
+		or abort 'SETUP /etc/shells'
 	echo
 end
 
 test (which fish) = $SHELL
-	and success 'dotfiles installed/updated!'
+	and success 'DOTFILES INSTALLED/UPDATED!'
 	and exit 0
 
 chsh -s (which fish)
 	and success set (fish --version) as the default shell
-	or abort 'set fish as default shell'
+	or abort 'SET FISH AS DEFAULT SHELL'
 
-success 'dotfiles installed/updated!'
+success 'DOTFILES INSTALLED/UPDATED!'

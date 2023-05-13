@@ -183,9 +183,13 @@
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
-[url "gitlab@gitlab.globoi.com:"]
+[url "ssh://gitlab@gitlab.globoi.com:"]
     insteadOf = https://gitlab.globoi.com/
     insteadOf = http://gitlab.globoi.com/
+
+[url "ssh://git@bitbucket.org/"]
+	insteadOf = https://bitbucket.org/
+
 
 [include]
 	path = ~/.gitconfig-private

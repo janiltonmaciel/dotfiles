@@ -27,11 +27,11 @@ link_file "$DOTFILES/vscode/settings.json" "$vscode_home/User/settings.json" bac
 link_file "$DOTFILES/vscode/keybindings.json" "$vscode_home/User/keybindings.json" backup
 	or abort_echo "vscode keybindings.json"
 
-ln -sf "$DOTFILES/vscode/snippets" "$vscode_home/User"
-	or abort_echo "vscode snippets"
+# ln -sf "$DOTFILES/vscode/snippets" "$vscode_home/User"
+# 	or abort_echo "vscode snippets"
 
-cat $DOTFILES/vscode/extensions.txt | while read module
-	code --install-extension "$module"
-		and success_echo "vscode: $module"
-		or abort_echo "vscode: failed to install $module"
-end
+# cat $DOTFILES/vscode/extensions.txt | while read module
+# 	code --install-extension "$module"
+# 		and success_echo "vscode: $module"
+# 		or abort_echo "vscode: failed to install $module"
+# end

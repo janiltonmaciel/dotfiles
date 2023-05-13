@@ -6,7 +6,7 @@ function link_file -d "links a file keeping a backup"
 	if test -e $new
 		set newf (readlink $new)
 		if test "$newf" = "$old"
-			success_echo "skipped $new -> $old"
+			success_echo "SKIPPED $new -> $old"
 			return
 		else
 			mv $new $new.$backup

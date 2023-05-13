@@ -1,10 +1,9 @@
 {
     // EDITOR
-    "editor.fontFamily": "Hack Nerd Font, 'Inconsolata Condensed', Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "Roboto Mono, Hack Nerd Font, 'Inconsolata Condensed', Fira Code, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.rulers": [
-        80,
-        120
+        150
     ],
     "editor.tabSize": 4,
     "editor.trimAutoWhitespace": true,
@@ -61,11 +60,11 @@
         "**/node_modules": true,
         "Godeps/": true,
         "vendor/": true,
-        "yarn.lock": true,
-		".bumpversion.cfg": true,
 		".coverage": true,
 		".coveragerc": true,
 		".flake8": true,
+		".pip-cache/": true,
+		".ruff_cache/": true,
       },
       "files.watcherExclude": {
         "vendor/**": true
@@ -146,5 +145,8 @@
 
 
   "redhat.telemetry.enabled": false,
-"telemetry.telemetryLevel": "crash"
+"telemetry.telemetryLevel": "crash",
+"grunt.autoDetect": "on",
+"code-runner.runInTerminal": true,
+"window.zoomLevel": 1
 }
