@@ -15,10 +15,7 @@ if status is-interactive
 	# zoxide is a smarter cd command, inspired by z and autojump.
 	zoxide init fish | source
 
-	# jEnv is a command line tool to help you forget how to set the JAVA_HOME environment variable
-	jenv init - | source
+	# jenv init - | source
 
-	# The next line updates PATH for the Google Cloud SDK.
-	if [ -f '/Applications/google-cloud-sdk/path.fish.inc' ]; . '/Applications/google-cloud-sdk/path.fish.inc'; end
-
+	# load-gcloud
 end

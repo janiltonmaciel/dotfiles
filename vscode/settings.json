@@ -10,8 +10,7 @@
     "editor.cursorStyle": "line",
     "editor.cursorBlinking": "solid",
     "editor.renderWhitespace": "all",
-    "editor.fontWeight": "300",
-    "editor.fontSize": 12,
+    "editor.fontSize": 11,
     "editor.minimap.enabled": false,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.insertSpaces": true,
@@ -62,7 +61,7 @@
         "vendor/": true,
 		".coverage": true,
 		".coveragerc": true,
-		".flake8": true,
+		// ".flake8": true,
 		".pip-cache/": true,
 		".ruff_cache/": true,
       },
@@ -147,6 +146,5 @@
   "redhat.telemetry.enabled": false,
 "telemetry.telemetryLevel": "crash",
 "grunt.autoDetect": "on",
-"code-runner.runInTerminal": true,
-"window.zoomLevel": 1
+"code-runner.runInTerminal": true
 }
