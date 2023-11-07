@@ -146,6 +146,7 @@ setup_init
 	and success 'SETUP INIT'
 	or abort 'SETUP INIT'
 
+
 setup_gitconfig
 	and success 'SETUP GIT'
 	or abort 'SETUP GIT'
@@ -154,13 +155,16 @@ setup_conf
 	and success 'SETUP CONF'
 	or abort 'SETUP CONF'
 
+
 setup_install
 	and success 'SETUP INSTALL'
 	or abort 'SETUP INSTALL'
 
+
 setup_private
 	and success 'SETUP PRIVATE'
 	or abort 'SETUP PRIVATE'
+
 
 if ! grep (command -v fish) /etc/shells
 	command -v fish | sudo tee -a /etc/shells

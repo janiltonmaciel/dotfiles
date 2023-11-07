@@ -5,19 +5,18 @@
     "editor.rulers": [
         150
     ],
-    "editor.tabSize": 4,
+    // "editor.tabSize": 4,
     "editor.trimAutoWhitespace": true,
     "editor.cursorStyle": "line",
     "editor.cursorBlinking": "solid",
     "editor.renderWhitespace": "all",
     "editor.fontSize": 11,
     "editor.minimap.enabled": false,
-    "editor.multiCursorModifier": "ctrlCmd",
     "editor.insertSpaces": true,
     "editor.smoothScrolling": true,
     "editor.lineHeight": 20,
-	"editor.bracketPairColorization.enabled": true,
-	"editor.guides.bracketPairs":"active",
+	  "editor.bracketPairColorization.enabled": true,
+	  "editor.guides.bracketPairs":"active",
 
 		// TERMINAL
     "terminal.external.osxExec": "iTerm.app",
@@ -25,10 +24,9 @@
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.fontFamily": "Hack Nerd Font",
+	  "terminal.integrated.fontFamily": "Hack Nerd Font",
 
     // EXPLORER
-    "explorer.openEditors.visible": 0,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "explorer.decorations.badges": false,
@@ -59,11 +57,11 @@
         "**/node_modules": true,
         "Godeps/": true,
         "vendor/": true,
-		".coverage": true,
-		".coveragerc": true,
-		// ".flake8": true,
-		".pip-cache/": true,
-		".ruff_cache/": true,
+        ".coverage": true,
+        ".coveragerc": true,
+        // ".flake8": true,
+        ".pip-cache/": true,
+        ".ruff_cache/": true,
       },
       "files.watcherExclude": {
         "vendor/**": true
@@ -76,10 +74,9 @@
     // WORKBENCH=
     "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.editor.enablePreview": true,
+    "workbench.editor.enablePreview": false,
     "workbench.editor.showIcons": true,
     "workbench.editor.highlightModifiedTabs": true,
-    "workbench.iconTheme": "vscode-great-icons",
 
     // GOLANG
     "go.useLanguageServer": true,
@@ -90,16 +87,6 @@
     ],
     "go.vetOnSave": "off",
     "go.buildOnSave": "package",
-    // "go.delveConfig": {
-    //   "dlvLoadConfig": {
-    //     "followPointers": true,
-    //     "maxVariableRecurse": 1,
-    //     "maxStringLen": 64,
-    //     "maxArrayValues": 64
-    //   },
-    //   "apiVersion": 1,
-    //   "showGlobalVariables": true
-    // },
     "go.coverageDecorator": {
         "type": "gutter"
     },
@@ -127,11 +114,14 @@
     // PYTHON
     "python.languageServer": "Pylance",
     "python.venvPath": "~/.virtualenvs",
-	"python.linting.enabled": true,
-    "python.linting.prospectorEnabled": true,
-	"python.linting.prospectorArgs": ["-X"],
+	// "python.linting.enabled": true,
+  //   "python.linting.prospectorEnabled": true,
+	// "python.linting.prospectorArgs": ["-X"],
 	"[python]": {
-      "editor.defaultFormatter": "ms-python.python",
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+      },
+      "editor.defaultFormatter": "ms-python.black-formatter",
       "editor.formatOnSave": true,
       "editor.formatOnPaste": false,
     },
@@ -146,5 +136,7 @@
   "redhat.telemetry.enabled": false,
 "telemetry.telemetryLevel": "crash",
 "grunt.autoDetect": "on",
-"code-runner.runInTerminal": true
+"code-runner.runInTerminal": true,
+"editor.stablePeek": true,
+"aws.telemetry": false,
 }

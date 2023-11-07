@@ -23,14 +23,9 @@ export LANG="en_US"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export COPYFILE_DISABLE=true
 export GPG_TTY=$(tty)
-export PATH="$PATH:/usr/local/opt/sqlite/bin:$HOME/.poetry/bin:$HOME/.rvm/bin:./node_modules/.bin:$GOPATH/bin"
+export PATH="$PATH:./node_modules/.bin:$GOPATH/bin"
 
-# This env must be set in MacOS to ensure that docker py works
-# https://bugs.python.org/issue35219
-export BJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-export OPENFAAS_PREFIX="janilton"
 
 export NVM_DIR="$HOME/.nvm"
-export CFLAGS="-I/usr/local/opt/openssl@1.1/include"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+# export CFLAGS="-I/usr/local/opt/openssl@1.1/include"
+# export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"

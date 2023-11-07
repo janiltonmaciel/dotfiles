@@ -40,6 +40,7 @@ brew install disk-inventory-x
 # brew install vlc
 brew install gpg-suite
 brew install licecap
+brew install maccy
 # brew install utorrent
 brew install libreoffice
 
