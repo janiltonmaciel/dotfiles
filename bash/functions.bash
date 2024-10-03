@@ -178,16 +178,16 @@ shellswitch () {
 }
 
 
-mysql () {
-    docker container run -it \
-        mysql:5.7 mysql -h host.docker.internal "$@"
-}
+# mysql () {
+#     docker container run -it \
+#         mysql:5.7 mysql -h host.docker.internal "$@"
+# }
 
 cleandsstores() {
     find . -name '.DS_Store' -exec rm -f '{}' ';'
 }
 
 
-aws () {
-	docker run --rm -it -v ~/.aws:/root/.aws -v "$(PWD)":/aws amazon/aws-cli  "$@"
-}
+# aws () {
+# 	docker run --rm -it -v ~/.aws:/root/.aws -v "$(PWD)":/aws amazon/aws-cli  "$@"
+# }

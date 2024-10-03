@@ -17,7 +17,7 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 
-[*.{py,js}]
+[*.{py,js,java}]
 indent_style = space
 indent_size = 4
 

@@ -29,3 +29,4 @@ export PATH="$PATH:./node_modules/.bin:$GOPATH/bin"
 export NVM_DIR="$HOME/.nvm"
 # export CFLAGS="-I/usr/local/opt/openssl@1.1/include"
 # export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export BASH_SILENCE_DEPRECATION_WARNING=1

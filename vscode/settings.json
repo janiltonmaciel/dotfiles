@@ -10,7 +10,7 @@
     "editor.cursorStyle": "line",
     "editor.cursorBlinking": "solid",
     "editor.renderWhitespace": "all",
-    "editor.fontSize": 11,
+    "editor.fontSize": 12,
     "editor.minimap.enabled": false,
     "editor.insertSpaces": true,
     "editor.smoothScrolling": true,
@@ -119,7 +119,7 @@
 	// "python.linting.prospectorArgs": ["-X"],
 	"[python]": {
       "editor.codeActionsOnSave": {
-        "source.organizeImports": true
+        "source.organizeImports": "explicit"
       },
       "editor.defaultFormatter": "ms-python.black-formatter",
       "editor.formatOnSave": true,
@@ -139,4 +139,13 @@
 "code-runner.runInTerminal": true,
 "editor.stablePeek": true,
 "aws.telemetry": false,
+"[dockerfile]": {
+  "editor.defaultFormatter": "foxundermoon.shell-format"
+},
+"window.zoomLevel": 2,
+"diffEditor.ignoreTrimWhitespace": false,
+"python.defaultInterpreterPath": "/Users/janilton.oliveira/.virtualenvs/valedaluz2",
+"github.copilot.editor.enableAutoCompletions": true,
+"makefile.configureOnOpen": true,
+"git.ignoreMissingGitWarning": true,
 }
