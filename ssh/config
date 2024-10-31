@@ -1,15 +1,5 @@
 # copy to ~/.ssh/config
 
-Host gitlab.globoi.com
-	ControlMaster auto
-	ControlPersist 120
-	IdentityFile ~/.ssh/id_rsa_globo
-
-Host git.tsuru.globoi.com
-	ControlMaster auto
-	ControlPersist 120
-	IdentityFile ~/.ssh/id_rsa_globo
-
 Host github.com
 	ControlMaster auto
 	ControlPersist 120
@@ -40,4 +30,3 @@ Host *
 	ServerAliveInterval 60
 	ServerAliveCountMax 10
 	StrictHostKeyChecking no
-  	UseKeychain yes
