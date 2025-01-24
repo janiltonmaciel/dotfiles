@@ -155,6 +155,10 @@
 [commit]
   template = ~/.dotfiles/git/template.txt
   verbose = true
+  gpgsign = false
+
+[gpg]
+	program = gpg
 
 [submodule]
 	fetchJobs = 4

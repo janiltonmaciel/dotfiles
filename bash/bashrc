@@ -11,3 +11,5 @@
 # # Enable tracing
 # set -x
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
