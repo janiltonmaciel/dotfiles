@@ -4,85 +4,62 @@
 
 # Make sure we’re using the latest Homebrew
 brew update
-
-# Upgrade any already-installed formulae
 brew upgrade
+brew analytics off
 
-brew install fish
-
-# GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
-# brew install moreutils
-# GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
-brew install findutils
-# GNU `sed`, overwriting the built-in `sed`
-# brew install gnu-sed --with-default-names
-# brew install xclip
+brew install moreutils
+brew install gnu-sed
 
-# Bash 4
-# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
+# Note: don’t forget to add `/usr/local/bin/<EACHSHELL>` to `/etc/shells` before running `chsh`.
+brew install fish
 brew install bash
 brew install bash-completion
 
-brew install homebrew/completions/brew-cask-completion
-
-# Install wget with IRI support
-brew install wget --with-iri
-
 # Install more recent versions of some OS X tools
-# brew install vim --with-override-system-vi
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-# brew install homebrew/dupes/screen
+brew install vim
+brew install nano
+brew install grep
 
-# z hopping around folders
-brew install zoxide
-
-# run this script when this file changes guy.
-# brew install entr
-
-# mtr - ping & traceroute. best.
-# brew install mtr
-# # allow mtr to run without sudo
-# mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//')
-# sudo chmod 4755 $mtrlocation/sbin/mtr
-# sudo chown root $mtrlocation/sbin/mtr
-
-
-
-# Record and share your terminal sessions
-# brew install asciinema
-
-# Install other useful binaries
-# brew install the_silver_searcher
+brew install wget
+brew install zoxide # z hopping around folders
+brew install mtr # mtr - ping & traceroute. best.
 brew install fzf
-
-brew install git
-# brew install git-lfs
-# brew install imagemagick --with-webp
+brew install gh
+brew install git-lfs
+brew install git-delta
 brew install rename
 brew install tree
-# brew install zopfli
-brew install ffmpeg --with-libvpx
-brew install ssh-copy-id
-
-# brew install android-platform-tools
-# brew install pidcat   # colored logcat guy
-
-# brew install ncdu # find where your diskspace went
-
+brew install ffmpeg
+brew install exa
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 brew install nmap
 brew install socat
-
-# https://github.com/FiloSottile/mkcert
-brew install mkcert
-brew install nss
-brew install httpie
 brew install jq
-brew install wrk
+brew install youtube-dl
+brew install asdf
+brew install curl
+brew install watch
+brew install janiltonmaciel/tap/statiks
 
+# Remove outdated versions from the cellar
+brew cleanup
+
+
+# brew install openssl@1.0
+# brew install openssl@1.1
+# brew install csshx
+# brew install kubectl
+# brew install minikube
+# brew install asciidoc
+# brew install goreleaser/tap/goreleaser
+# brew install sqlite
+# brew install htop
+# brew install mkcert
+# brew install nss
+# brew install httpie
+# brew install wrk
 # brew install aircrack-ng
 # brew install bfg
 # brew install binutils
@@ -107,25 +84,23 @@ brew install wrk
 
 # brew install mysql --client-only
 
+# GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
+#brew install findutils
+# run this script when this file changes guy.
+# brew install entr
 
-brew install exa
-brew install htop
-brew install youtube-dl
-brew install asdf
-brew install csshx
-brew install curl
-brew install dep
-brew install git-delta
-brew install openssl@1.0
-brew install openssl@1.1
-brew install sqlite
-brew install watch
-brew install asciidoc
-brew install goreleaser/tap/goreleaser
-brew install janiltonmaciel/tap/statiks
-brew install tsuru/tsuru/tsuru
-brew install kubectl
-brew install minikube
+# # allow mtr to run without sudo
+# mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//')
+# sudo chmod 4755 $mtrlocation/sbin/mtr
+# sudo chown root $mtrlocation/sbin/mtr
 
-# Remove outdated versions from the cellar
-brew cleanup
+# Record and share your terminal sessions
+# brew install asciinema
+
+# Install other useful binaries
+# brew install the_silver_searcher
+
+# brew install android-platform-tools
+# brew install pidcat   # colored logcat guy
+
+# brew install ncdu # find where your diskspace went
