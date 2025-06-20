@@ -1,29 +1,11 @@
 {
     // EDITOR
-    "editor.fontFamily": "Roboto Mono, Hack Nerd Font, 'Inconsolata Condensed', Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": " Hack Nerd Font, 'Inconsolata Condensed', Fira Code, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": true,
-    "editor.rulers": [
-        150
-    ],
-    // "editor.tabSize": 4,
-    "editor.trimAutoWhitespace": true,
-    "editor.cursorStyle": "line",
-    "editor.cursorBlinking": "solid",
-    "editor.renderWhitespace": "all",
-    "editor.fontSize": 14,
+    "editor.fontSize": 12,
     "editor.minimap.enabled": false,
     "editor.insertSpaces": true,
-    "editor.smoothScrolling": true,
-    "editor.lineHeight": 20,
-	  "editor.bracketPairColorization.enabled": true,
-	  "editor.guides.bracketPairs":"active",
-
-		// TERMINAL
-    "terminal.integrated.defaultProfile.osx": "fish",
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.fontFamily": "Hack Nerd Font",
+    "editor.trimAutoWhitespace": true,
 
     // EXPLORER
     "explorer.confirmDragAndDrop": false,
@@ -58,7 +40,6 @@
         "vendor/": true,
         ".coverage": true,
         ".coveragerc": true,
-        // ".flake8": true,
         ".pip-cache/": true,
         ".ruff_cache/": true,
       },
@@ -68,31 +49,15 @@
 
     // EXTENSIONS
     "extensions.autoUpdate": true,
-    "extensions.ignoreRecommendations": false,
 
     // WORKBENCH=
-    "workbench.sideBar.location": "left",
-    "workbench.startupEditor": "newUntitledFile",
     "workbench.editor.enablePreview": false,
-    "workbench.editor.showIcons": true,
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.colorTheme": "One Dark Pro Darker",
+    "workbench.iconTheme": "material-icon-theme",
 
     // GOLANG
-    "go.useLanguageServer": true,
-    "go.toolsManagement.autoUpdate": true,
     "go.lintTool": "golangci-lint",
     "go.lintFlags": [
       "--enable-all", "--disable", "exhaustivestruct,gochecknoglobals,lll,wsl,maligned,misspell,nlreturn"
-    ],
-    "go.vetOnSave": "off",
-    "go.coverageDecorator": {
-        "type": "gutter"
-    },
-    "go.testTimeout": "3m",
-    "go.coverOnSingleTest": true,
-    "go.buildFlags": [
-        "-v"
     ],
 
     // SEARCH
@@ -100,49 +65,13 @@
         "**/bower_components": true,
         "**/node_modules": true,
         "vendor/**": true
-      },
-
-    "search.smartCase": true,
-    "search.useGlobalIgnoreFiles": true,
-    "search.showLineNumbers": true,
+    },
 
     // BREADCRUMBS
     "breadcrumbs.enabled": true,
 
     // PYTHON
-    "python.languageServer": "Pylance",
     "python.venvPath": "~/.virtualenvs",
-	// "python.linting.enabled": true,
-  //   "python.linting.prospectorEnabled": true,
-	// "python.linting.prospectorArgs": ["-X"],
-	"[python]": {
-      "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit"
-      },
-      "editor.defaultFormatter": "ms-python.black-formatter",
-      "editor.formatOnSave": true,
-      "editor.formatOnPaste": false,
-    },
+    "makefile.configureOnOpen": false
 
-    // GITLENS
-    "gitlens.defaultDateStyle": "absolute",
-    "gitlens.advanced.messages": {
-        "suppressCommitNotFoundWarning": true
-    },
-
-
-"redhat.telemetry.enabled": false,
-"telemetry.telemetryLevel": "crash",
-"grunt.autoDetect": "on",
-"code-runner.runInTerminal": true,
-"editor.stablePeek": true,
-"aws.telemetry": false,
-"[dockerfile]": {
-  "editor.defaultFormatter": "foxundermoon.shell-format"
-},
-"window.zoomLevel": 2,
-"diffEditor.ignoreTrimWhitespace": false,
-"github.copilot.editor.enableAutoCompletions": true,
-"makefile.configureOnOpen": true,
-"git.ignoreMissingGitWarning": true
 }

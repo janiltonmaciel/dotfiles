@@ -1,18 +1,17 @@
-setup:
-	@echo "Setup dotfiles..."
-	@./script/bootstrap.fish
+setup/fish:
+	@echo "Setup dotfiles fish..."
+	@./bootstrap.fish
+	# @echo "Setup private..."
+	# @./private.fish
 
-setup-private:
-	@echo "Setup private..."
-	@./private.fish
+setup/zsh:
+	@echo "Setup dotfiles zsh..."
+	@./bootstrap.sh
+# @echo "Setup private..."
+# @./private.sh
 
-setup-brew:
+setup/brew:
 	@echo "Setup brew..."
 	@./brew/brew.sh
 	@echo "Setup brew cask..."
 	@./brew/brew-cask.sh
-
-setup-macos:
-	@echo "Setup macOS..."
-	@./macos/set-defaults.sh
-

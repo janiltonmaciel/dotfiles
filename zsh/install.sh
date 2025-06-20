@@ -1,0 +1,1 @@
+link_file "$DOTFILES_ROOT/zsh/.zshrc" "$HOME/.zshrc"
