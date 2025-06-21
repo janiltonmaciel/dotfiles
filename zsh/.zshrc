@@ -19,3 +19,6 @@ source $DOTFILES_ROOT/zsh/aliases.sh
 
 # functions
 source $DOTFILES_ROOT/zsh/functions.sh
+
+# history
+source $DOTFILES_ROOT/zsh/history.sh

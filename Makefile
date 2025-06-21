@@ -8,7 +8,7 @@ setup/zsh:
 	@echo "Setup dotfiles zsh..."
 	@./bootstrap.sh
 # @echo "Setup private..."
-# @./private.sh
+w# @./private.sh
 
 setup/brew:
 	@echo "Setup brew..."

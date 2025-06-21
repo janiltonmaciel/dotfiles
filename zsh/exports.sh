@@ -29,12 +29,16 @@ export LC_ALL="en_US.UTF-8"
 
 
 # PATHS
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-# export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
+export PATH="/Applications/PyCharm.app/Contents/MacOS:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
-export PATH="./node_modules/.bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export PATH="./node_modules/.bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
 # export PATH="$HOME/.yarn/bin:$PATH"
+
 
 # BREW ENVIRONMENT
 eval "$(/opt/homebrew/bin/brew shellenv)"
