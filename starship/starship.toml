@@ -25,6 +25,7 @@ $line_break\
 $character"""
 
 palette = 'catppuccin_mocha'
+command_timeout = 36000
 
 [os]
 disabled = true
@@ -63,12 +64,6 @@ format = "[ $path ]($style)"
 truncation_symbol = "…/"
 truncate_to_repo = false
 
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Developer" = "󰲋 "
 
 [git_branch]
 symbol = ""

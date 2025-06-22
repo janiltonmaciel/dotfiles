@@ -186,6 +186,20 @@
 [url "ssh://git@bitbucket.org/"]
 	insteadOf = https://bitbucket.org/
 
+[gpg]
+	program = gpg
+
+[tag]
+	gpgsign = true
+
+[commit]
+	gpgsign = true
 
 [include]
-	path = ~/.gitconfig-private
+	path = ~/.gitconfig-personal
+
+[includeIf "gitdir:~/Projetos/inbev/"]
+    path = .gitconfig-work
+
+[includeIf "gitdir:~/Projetos/go/src/github.com/ab-inbev-ze-company/"]
+    path = .gitconfig-work
