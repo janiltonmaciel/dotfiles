@@ -15,7 +15,7 @@ abort_echo() {
 link_file() {
   local old="$1"
   local new="$2"
-  local backup="$3"
+  local backup="bkup"
 
   if [ -e "$new" ]; then
     local newf
@@ -36,7 +36,7 @@ link_file() {
     || abort_echo "could not link $new -> $old"
 }
 
-
+link_file "$DOTFILES_ROOT/starship/starship.toml" "$HOME/.config/starship.toml"
 source zsh/install.sh
 source git/install.sh
 source ssh/install.sh

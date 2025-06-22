@@ -2,7 +2,7 @@
 export EDITOR="code"
 
 # HOME PROJETOS
-export PROJETOS="$HOME/projetos"
+export PROJETOS="$HOME/Projetos"
 
 # GOLANG
 export GOPATH="$PROJETOS/go"

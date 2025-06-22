@@ -128,3 +128,23 @@ venv_create() {
   "$python_bin" -m venv "$HOME/.virtualenvs/$venv_name"
   venv_activate "$venv_name"
 }
+
+
+aws-credentials() {
+  if [ -z "$1" ]; then
+    echo -e "\033[0;31m>> First argument need to be a profile name.\033[0m" >&2
+    return 1
+  fi
+  local AWS_PROFILE_NAME="$1"
+  local LOGADO
+  LOGADO=$(aws sts get-caller-identity --profile "$AWS_PROFILE_NAME" 2>/dev/null | jq -r '.UserId')
+  if [ -z "$LOGADO" ]; then
+    echo "AWS Login with profile $AWS_PROFILE_NAME..."
+    aws sso login --profile "$AWS_PROFILE_NAME"
+  fi
+  aws configure export-credentials --profile "$AWS_PROFILE_NAME" --format env
+}
+
+aws-credentials-courier-development() {
+  aws-credentials courier-development
+}
