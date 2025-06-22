@@ -32,6 +32,8 @@ brew install rename
 brew install tree
 brew install ffmpeg
 brew install exa
+brew install the_silver_searcher
+brew install bat
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 brew install nmap

@@ -1,12 +1,8 @@
 # This file is part of the dotfiles project
 export DOTFILES_ROOT="${DOTFILES_ROOT:-$HOME/.dotfiles}"
-export DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
 
 # environment variables
 source $DOTFILES_ROOT/zsh/exports.sh
-
-# terminal
-eval "$(starship init zsh)"
 
 # jump Z
 eval "$(zoxide init zsh)"
@@ -20,5 +16,5 @@ source $DOTFILES_ROOT/zsh/aliases.sh
 # functions
 source $DOTFILES_ROOT/zsh/functions.sh
 
-# history
-source $DOTFILES_ROOT/zsh/history.sh
+# terminal
+eval "$(starship init zsh)"
